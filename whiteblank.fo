@@ -1,6 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
+<?xml version="1.0" encoding="utf-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+	<fo:layout-master-set>
+		<fo:simple-page-master master-name="all-pages" page-width="2in" page-height="2in">
+			<fo:region-body margin="0in"/>
+		</fo:simple-page-master>
+		<fo:page-sequence-master master-name="my-sequence">
+			<fo:repeatable-page-master-reference master-reference="all-pages"/>
+		</fo:page-sequence-master>
+	</fo:layout-master-set>
+	<fo:page-sequence master-reference="my-sequence">
+		<fo:flow flow-name="xsl-region-body" font="72pt Times">
+			<fo:block>
+				<fo:instream-foreign-object content-height="2in" content-width="2in">
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -135,3 +146,8 @@
        id="path44" />
   </g>
 </svg>
+				</fo:instream-foreign-object>
+			</fo:block>
+		</fo:flow>
+	</fo:page-sequence>
+</fo:root>
