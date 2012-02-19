@@ -13,3 +13,4 @@ cards.fo: cards.xml cards.xsl
 clean:
 	-rm cards.pdf
 	-rm cards.fo
+	-rm cards.opt.pdf
