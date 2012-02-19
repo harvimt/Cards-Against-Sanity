@@ -95,7 +95,7 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________again
 	<blackcard pick="1">What is my favorite application for Rule 34?</blackcard>
 	<blackcard pick="2">________ &amp; ________, still a better love story than Twilight.</blackcard>
 	<blackcard pick="1">The Good, the Bad, and the ________.</blackcard>
-	<blackcard pick="2">________ / ________, there's a subreddit for that.</blackcard>
+	<blackcard pick="1">________, there's a subreddit for that.</blackcard>
 	<blackcard pick="2">In the new summer blockbuster, ________ must stop ________.</blackcard>
 	<blackcard pick="1">What will the next South Park episode be about?</blackcard>
 	<blackcard pick="1">________, gotta catch 'em all.</blackcard>
@@ -128,5 +128,6 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________again
 	<blackcard pick="1">The best xmas present my grandma ever gave me was ________.</blackcard>
 	<!--printed out-->
 
-	<!--<blackcard pick="1">And on his farm he had ________, e-i-e-i-o!</blackcard>-->
+	<blackcard pick="1">And on his farm he had ________, e-i-e-i-o!</blackcard>
+	<blackcard pick="2">________ / ________, this years hottest slash fiction. </blackcard>
 </cardset>
