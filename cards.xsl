@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- vim: set ts=2: -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
@@ -18,7 +19,7 @@
 				</fo:page-sequence-master>
 			</fo:layout-master-set>
 			<fo:page-sequence master-reference="my-sequence">
-				<fo:flow flow-name="xsl-region-body">
+				<fo:flow flow-name="xsl-region-body" font-weight="bold">
 						<fo:table>
 								<fo:table-body>
 								<xsl:for-each select="whitecard|blackcard">
@@ -59,7 +60,7 @@
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=1]">
-			<fo:table-cell border="solid black" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
@@ -70,7 +71,7 @@
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=2]">
-			<fo:table-cell border="solid black" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
@@ -81,7 +82,7 @@
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=3]">
-			<fo:table-cell border="solid black" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
@@ -92,4 +93,3 @@
 	</xsl:template>
 
 </xsl:stylesheet>
-<!--ts=2-->
