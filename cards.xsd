@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- vim: set ts=2: -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://web.cecs.pdx.edu/~harvimt/CAH">
+
+	<xs:element name="cardset">
+		<xs:simpleType>
+					<xs:element name="whitecard"><xs:string/></xs:element>
+				<xs:element name="blackcard"/>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:element name="blackcard">
+			<xs:attribute name="pick" type="xs:number" use="required">
+					<xs:restriction>
+							<xs:minInclusive value="1"/>
+							<xs:maxInclusive value="3"/>
+					</xs:restriction>
+			</xs:attribute>
+
+	</xs:element>
+	<xs:element name="whitecard">
+		<xs:simpleContent>
+				<xs:extension base="xs:integer">
+					<xs:attribute name="country" type="xs:string" />
+				</xs:extension>
+			</xs:simpleContent>
+	</xs:element>
+
+
+</xs:schema>

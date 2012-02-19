@@ -1,5 +1,7 @@
+all: cards.opt.pdf
 
-all: cards.pdf
+cards.opt.pdf: cards.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ $<
 
 %.pdf: %.fo
 	CLASSPATH='/usr/share/java/batik/xml-apis-ext.jar' fop $< $@
