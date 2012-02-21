@@ -49,44 +49,44 @@
 	</xsl:template>
 
 	<xsl:template match="whitecard">
-			<fo:table-cell border="solid black" padding=".1in" width="2in" height="1.8in">
+			<fo:table-cell border="solid black" padding=".1in" width="2in" height="2.8in">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
-				<fo:block-container absolute-position="absolute" top="1.6in">
+				<fo:block-container absolute-position="absolute" top="2.6in">
 					<fo:block><fo:external-graphic src="url('footer.svg')"/></fo:block>
 			</fo:block-container>
 		</fo:table-cell>
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=1]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="2.8in" background-color="black" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
-				<fo:block-container absolute-position="absolute" top="1.6in">
+				<fo:block-container absolute-position="absolute" top="2.6in">
 					<fo:block><fo:external-graphic src="url('blackfooter.svg')"/></fo:block>
 			</fo:block-container>
 		</fo:table-cell>
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=2]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="2.8in" background-color="black" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
-				<fo:block-container absolute-position="absolute" top="1.6in">
+				<fo:block-container absolute-position="absolute" top="2.6in">
 					<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick2.svg')"/></fo:block>
 			</fo:block-container>
 		</fo:table-cell>
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=3]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="2.8in" background-color="black" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
-				<fo:block-container absolute-position="absolute" top="1.35in">
+				<fo:block-container absolute-position="absolute" top="2.35in">
 					<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick3.svg')"/></fo:block>
 			</fo:block-container>
 		</fo:table-cell>
