@@ -1,16 +1,7 @@
-all: cards.opt.pdf
+all: 2x3
 
-cards.opt.pdf: cards.pdf
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ $<
+2x3:
+	sh cards.sh cards.xml cards-2x3.xsl cards-2x3.pdf
 
-%.pdf: %.fo
-	CLASSPATH='/usr/share/java/batik/xml-apis-ext.jar' fop $< $@
-
-cards.fo: cards.xml cards.xsl
-	saxon -o:$@ -s:cards.xml -xsl:cards.xsl
-	#xsltproc -o $@ cards.xsl cards.xml
-
-clean:
-	-rm cards.pdf
-	-rm cards.fo
-	-rm cards.opt.pdf
+2x2:
+	sh cards.sh cards.xml cards-2x2.xsl cards-2x2.pdf
