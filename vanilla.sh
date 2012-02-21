@@ -1,6 +1,11 @@
+#!/bin/zsh
 #CardsAgainstHumanity has the text encoded as a vector instead of as text.
-#Need to convert extract text for cards.vanilla.xml
-#just a recording of what I did in term, not what I ran to do the actual conversion
+
+#Extracts the text from CardsAgainstHumanity.pdf
+
+#Creates White-ocrad.txt, White-tess.txt, Black-tess.txt, and Black-ocrad.txt indicating card color & OCR engine.
+#the best OCRed version should be chosen and cleaned, and probably spell checked.
+
 
 croppdf (){
 	#http://stackoverflow.com/questions/6183479/cropping-a-pdf-using-ghostscript-9-01
