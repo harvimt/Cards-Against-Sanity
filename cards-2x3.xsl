@@ -19,7 +19,7 @@
 				</fo:page-sequence-master>
 			</fo:layout-master-set>
 			<fo:page-sequence master-reference="my-sequence">
-				<fo:flow flow-name="xsl-region-body" font-weight="bold">
+				<fo:flow flow-name="xsl-region-body" font-weight="bold" font-size=".2in">
 						<fo:table>
 								<fo:table-body>
 								<xsl:for-each select="whitecard|blackcard">

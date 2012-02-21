@@ -323,7 +323,7 @@
 	<whitecard>Cockfights.</whitecard>
 	<whitecard>Kim Jong-il.</whitecard>
 	<whitecard>Hope.</whitecard>
-	<whitecard>8 oz. of sweet Mexican black- tar heroin.</whitecard>
+	<whitecard>8 oz. of sweet Mexican black-tar heroin.</whitecard>
 	<whitecard>Incest.</whitecard>
 	<whitecard>Grave robbing.</whitecard>
 	<whitecard>Asians who aren&#8217;t good at math.</whitecard>
@@ -471,7 +471,7 @@
 	<blackcard pick="1">It&#8217;s a pity that kids these days are all getting involved with ________.</blackcard>
 	<blackcard pick="1">During Picasso&#8217;s often-overlooked Brown Period, he produced hundreds of paintings of ________.</blackcard>
 	<blackcard pick="1">Alternative medicine is now embracing the curative powers of ________.</blackcard>
-	<blackcard pick="1">And the Academy Award for ________ goes to ________.</blackcard>
+	<blackcard pick="2">And the Academy Award for ________ goes to ________.</blackcard>
 	<blackcard pick="1">What&#8217;s that sound?</blackcard>
 	<blackcard pick="1">What ended my last relationship?</blackcard>
 	<blackcard pick="1">MTV&#8217;s new reality show features eight washed-up celebrities living with ________.</blackcard>
@@ -482,28 +482,28 @@
 	<blackcard pick="1">What&#8217;s a girl&#8217;s best friend?</blackcard>
 	<blackcard pick="1">TSA guidelines now prohibit on airplanes.</blackcard>
 	<blackcard pick="1">________ That&#8217;s how I want to die.</blackcard>
-	<blackcard pick="1">For my next trick, I will pull ________ out of ________.</blackcard>
+	<blackcard pick="2">For my next trick, I will pull ________ out of ________.</blackcard>
 	<blackcard pick="1">In the new Disney Channel Original Movie, Hannah Montana struggles with ________ for the first time.</blackcard>
-	<blackcard pick="1">________ is a slippery slope that leads to ________.</blackcard>
+	<blackcard pick="2">________ is a slippery slope that leads to ________.</blackcard>
 	<blackcard pick="1">What does Dick Cheney prefer?</blackcard>
 	<blackcard pick="1">I wish I hadn&#8217;t lost the instruction manual for ________.</blackcard>
 	<blackcard pick="1">Instead of coal, Santa now gives the bad children ________.</blackcard>
 	<blackcard pick="1">What&#8217;s the most emo?</blackcard>
 	<blackcard pick="1">In 1,000 years, when paper money is but a distant memory, ________ will be our currency.</blackcard>
-	<blackcard pick="1">What&#8217;s the next superhero/sidekick duo?</blackcard>
-	<blackcard pick="1">In M. Night Shyamalan&#8217;s new movie, Bruce Willis discovers that ________ had really been ________ all along.</blackcard>
+	<blackcard pick="2">What&#8217;s the next superhero/sidekick duo?</blackcard>
+	<blackcard pick="2">In M. Night Shyamalan&#8217;s new movie, Bruce Willis discovers that ________ had really been ________ all along.</blackcard>
 	<blackcard pick="1">A romantic, candlelit dinner would be incomplete without ________.</blackcard>
 	<blackcard pick="1">________ Betcha can&#8217;t have just one!</blackcard>
 	<blackcard pick="1">White people like ________.</blackcard>
 	<blackcard pick="1">________, High five, bro!</blackcard>
 	<blackcard pick="1">Next from J.K. Rowling: Harry Potter and the Chamber of ________.</blackcard>
 	<blackcard pick="1">BILLY MAYS HERE FOR ________.</blackcard>
-	<blackcard pick="1">In a world ravaged by ________ our only solace is ________.</blackcard>
+	<blackcard pick="2">In a world ravaged by ________ our only solace is ________.</blackcard>
 	<blackcard pick="1">War! What is it good for?</blackcard>
 	<blackcard pick="1">During sex, I like to think about ________.</blackcard>
 	<blackcard pick="1">What are my parents hiding from me?</blackcard>
 	<blackcard pick="1">What will always get you laid?</blackcard>
-	<blackcard pick="1">When I&#8217;m in prison, I&#8217;ll have smuggled in.</blackcard>
+	<blackcard pick="1">When I&#8217;m in prison, I&#8217;ll have ________ smuggled in.</blackcard>
 	<blackcard pick="1">What did I bring back from Mexico?</blackcard>
 	<blackcard pick="1">What don&#8217;t you want to find in your Chinese food?</blackcard>
 	<blackcard pick="1">What will I bring back in time to convince people that I am a powerful wizard?</blackcard>
@@ -513,8 +513,8 @@
 	<blackcard pick="1">While the United States raced the Soviet Union to the moon, the Mexican government funneled millions of pesos into research on ________</blackcard>
 	<blackcard pick="1">After Hurricane Katrina, Sean Penn brought to the people of New Orleans ________.</blackcard>
 	<blackcard pick="1">Due to a PR fiasco, Walmart no longer offers ________.</blackcard>
-	<blackcard pick="1">In his new summer comedy, Rob Schneider is ________ trapped in the body of ________.</blackcard>
-	<blackcard pick="1">Rumor has it that Vladimir Putin&#8217;s favorite dish is ________ stuffed with ________.</blackcard>
+	<blackcard pick="2">In his new summer comedy, Rob Schneider is ________ trapped in the body of ________.</blackcard>
+	<blackcard pick="2">Rumor has it that Vladimir Putin&#8217;s favorite dish is ________ stuffed with ________.</blackcard>
 	<blackcard pick="1">But before I kill you, Mr. Bond, I must show you ________.</blackcard>
 	<blackcard pick="1">What gives me uncontrollable gas?</blackcard>
 	<blackcard pick="1">What do old people smell like?</blackcard>
@@ -523,30 +523,31 @@
 	<blackcard pick="1">What&#8217;s my secret power?</blackcard>
 	<blackcard pick="1">What&#8217;s there a ton of in heaven?</blackcard>
 	<blackcard pick="1">What would grandma find disturbing, yet oddly charming?</blackcard>
-	<blackcard pick="1">I never truly understood ________ until I encountered ________.</blackcard>
+	<blackcard pick="2">I never truly understood ________ until I encountered ________.</blackcard>
 	<blackcard pick="1">The US has begun airdropping ________ to the children of Afghanistan.</blackcard>
 	<blackcard pick="1">What helps Obama unwind?</blackcard>
 	<blackcard pick="1">What did Vin Diesel eat for dinner?</blackcard>
-	<blackcard pick="1">Good to the last drop.</blackcard>
+	<blackcard pick="1">________ Good to the last drop.</blackcard>
 	<blackcard pick="1">Why am I sticky?</blackcard>
 	<blackcard pick="1">What gets better with age?</blackcard>
 	<blackcard pick="1">Kid-tested, mother-approved.</blackcard>
 	<blackcard pick="1">What&#8217;s the crustiest?</blackcard>
 	<blackcard pick="1">What&#8217;s Teach for America using to inspire inner city students to succeed?</blackcard>
-	<blackcard pick="1">Studies show that lab rats navigate mazes 50% faster after being exposed to</blackcard>
-	<blackcard pick="1">Life was difficult for cavemen before</blackcard>
-	<blackcard pick="1">Make a haiku.</blackcard>
-	<blackcard pick="1">I do not know with what weapons World War Ill will be fought, but World War IV will be fought with ________.</blackcard>
+	<blackcard pick="1">Studies show that lab rats navigate mazes 50% faster after being exposed to _______</blackcard>
+	<blackcard pick="1">Life was difficult for cavemen before _______</blackcard>
+	<blackcard pick="3">Make a haiku.</blackcard>
+	<blackcard pick="1">I do not know with what weapons World War will will be fought, but World War IV will be fought with ________.</blackcard>
 	<blackcard pick="1">Why do I hurt all over?</blackcard>
 	<blackcard pick="1">What am I giving up for Lent?</blackcard>
 	<blackcard pick="1">In Michael Jackson&#8217;s final moments, he thought about ________.</blackcard>
 	<blackcard pick="1">In an attempt to reach a wider audience, the Smithsonian Museum of Natural History has opened an interactive exhibit on ________.</blackcard>
 	<blackcard pick="1">When I am President of the United States, I will create the Department of ________.</blackcard>
-	<blackcard pick="1">Lifetime&#174; presents ________ the story of ________.</blackcard>
+	<blackcard pick="2">Lifetime&#174; presents ________ the story of ________.</blackcard>
 	<blackcard pick="1">When I am a billionaire, I shall erect a 50-foot statue to commemorate ________.</blackcard>
-	<blackcard pick="1">When I was tripping on acid, ________ turned into ________.</blackcard>
-	<blackcard pick="1">That&#8217;s right, I killed ________ How, you ask? ________</blackcard>
+	<blackcard pick="2">When I was tripping on acid, ________ turned into ________.</blackcard>
+	<blackcard pick="2">That&#8217;s right, I killed ________ How, you ask? ________</blackcard>
 	<blackcard pick="1">What&#8217;s my anti-drug?</blackcard>
+	<blackcard pick="3">_______ + _______ = _______</blackcard>
 	<blackcard pick="1">What never fails to liven up the party?</blackcard>
 	<blackcard pick="1">What&#8217;s the new fad diet?</blackcard>
 	<blackcard pick="1">Major League Baseball has banned ________ for giving players an unfair advantage.</blackcard>
