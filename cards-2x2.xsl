@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- vim: set ts=2: -->
+<!-- vim: set ts=2:sw=2: -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
@@ -51,7 +51,7 @@
 	<xsl:template match="whitecard">
 			<fo:table-cell border="solid black" padding=".1in" width="2in" height="1.8in">
 
-				<fo:block><xsl:value-of select="text()"/></fo:block>
+				<fo:block><xsl:apply-templates/></fo:block>
 
 				<fo:block-container absolute-position="absolute" top="1.6in">
 					<fo:block><fo:external-graphic src="url('footer.svg')"/></fo:block>
@@ -90,6 +90,20 @@
 					<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick3.svg')"/></fo:block>
 			</fo:block-container>
 		</fo:table-cell>
+	</xsl:template>
+
+	<xsl:template match="text()">
+		<xsl:value-of select="."/>
+	</xsl:template>
+
+	<xsl:template match="img">
+		<fo:external-graphic content-width="1.8in" content-height="1.6in">
+			<xsl:attribute name="src">
+				<xsl:text>url('</xsl:text>
+				<xsl:value-of select="@src"/> <!--FIXME escape out single quotes -->
+				<xsl:text>')</xsl:text>
+			</xsl:attribute>
+		</fo:external-graphic>
 	</xsl:template>
 
 </xsl:stylesheet>
