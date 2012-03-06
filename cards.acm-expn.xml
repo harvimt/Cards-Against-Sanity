@@ -3,6 +3,7 @@
 http://boardgamegeek.com/thread/738904/diy-card-ideas
 others from:
 http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________against________humanity________blank________card________suggestions/
+(and still others from myself/my friends at the ACM)
 -->
 
 <cardset>
@@ -109,7 +110,6 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________again
 	<blackcard pick="1">It is often argued that our ancestors would have never evolved without the aid of ________.</blackcard>
 	<blackcard pick="1">The sad truth is, at the edge of the universe, there is nothing but ________.</blackcard>
 	<blackcard pick="2">________ a day, keeps ________ away.</blackcard>
-	<blackcard pick="1">The 1930&#8217;s is often regarded as the golden age of ________.</blackcard>
 	<blackcard pick="1">There is a time for peace, a time for war, and a time for ________.</blackcard>
 	<blackcard pick="1">If a pot of gold is on one end of the rainbow, what is on the other?</blackcard>
 	<blackcard pick="1">A fortune teller told me I will live a life filled with ________.</blackcard>
@@ -125,7 +125,14 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________again
 	<blackcard pick="1">I will not eat them Sam-I-Am. I will not eat ________.</blackcard>
 	<blackcard pick="1">Go-go Gadget ________!</blackcard>
 	<blackcard pick="1">The best xmas present my grandma ever gave me was ________.</blackcard>
-	<blackcard pick="1">And on his farm he had ________, e-i-e-i-o!</blackcard>
+
+	<!--new set-->
 	<blackcard pick="2">________ / ________, this years hottest slash fiction. </blackcard>
 	<whitecard>Teh Interwebz.</whitecard>
+	<whitecard>A Raccoon Sex Dungeon.</whitecard>
+	<whitecard><img src="trollface.svg"/></whitecard>
+
+	<!--bad cards-->
+	<blackcard pick="1">The 1930&#8217;s is often regarded as the golden age of ________.</blackcard>
+	<blackcard pick="1">And on his farm he had ________, e-i-e-i-o!</blackcard>
 </cardset>
