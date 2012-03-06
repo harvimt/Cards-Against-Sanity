@@ -60,7 +60,7 @@
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=1]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
@@ -71,7 +71,7 @@
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=2]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
@@ -82,7 +82,7 @@
 	</xsl:template>
 
 	<xsl:template match="blackcard[@pick=3]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="black" color="white">
+			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white">
 
 				<fo:block><xsl:value-of select="text()"/></fo:block>
 
