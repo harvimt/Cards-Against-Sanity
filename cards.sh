@@ -13,13 +13,22 @@ optipdf(){
 xml=$1
 xsl=$2
 pdf=$3
+cover=$3
 
 tmppdf=`mktemp`
+tmppdf2=`mktemp`
+#covertex=`mktemp`
+coverpdf=`mktemp`
 tmpfo=`mktemp`
 
 xsltproc --xinclude -o $tmpfo $xsl $xml
 fop -fo $tmpfo -pdf $tmppdf
-optipdf $tmppdf $pdf
+rst2pdf $cover -o $coverpdf
+stapler cat $coverpdf $tmpdf $tmppdf2
+optipdf $tmppdf2 $pdf
 
 rm $tmppdf
+rm $tmppdf2
+rm $coverpdf
+rm $covertex
 rm $tmpfo

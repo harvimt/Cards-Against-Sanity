@@ -27,7 +27,7 @@
 	<whitecard>Horrifying laser hair removal accidents.</whitecard>
 	<whitecard>Hot cheese.</whitecard>
 	<whitecard>Jibber-jabber.</whitecard>
-	<!--<whitecard>Lady Gaga.</whitecard>--><!-- Already included in the ACM Expansion-->
+	<whitecard>Lady Gaga.</whitecard>
 	<whitecard>MechaHitler.</whitecard>
 	<whitecard>Morgan Freeman’s voice.</whitecard>
 	<whitecard>My inner demons.</whitecard>
@@ -51,14 +51,12 @@
 	<whitecard>Vigilante justice.</whitecard>
 
 	<!--Changed White Cards-->
-	<!--Insinificant changes -->
-	<!--
+	<!--Insignificant changes -->
 	<whitecard>The Rev. Dr. Martin Luther King, Jr.</whitecard>
 	<whitecard>“Tweeting”.</whitecard>
 	<whitecard>Steven Hawking talking dirty.</whitecard>
 	<whitecard>A time travel paradox.</whitecard>
 	<whitecard>GoGurt®.</whitecard>
-	-->
 
 	<!--New Black Cards-->
 	<blackcard pick="1">Dear Abby, I’m having some trouble with ________ and would like your advice.</blackcard>
@@ -72,23 +70,5 @@
 	<blackcard pick="2">Rumor has it that Vladimir Putin&#8217;s favorite dish is ________ stuffed with ________.</blackcard> <!-- forgot the pick="2" before-->
 	<blackcard pick="1">After the earthquake, Sean Penn brought ________ to the people of Haiti.</blackcard>
 
-	<!--<blackcard pick="1">What did the U.S. airdrop to the children of Afghanistan?</blackcard>-->
-
-	<!-- Missprints/Problems with ACM Expansion-->
-	<!-- New Cards -->
-	<blackcard pick="2">_______ / _______, this years hottest slash fiction. </blackcard>
-	<blackcard pick="1">________, there&#8217;s a subreddit for that.</blackcard>
-	<blackcard pick="1">I&#8217;m sorry, Professor, but I couldn&#8217;t complete my homework because of ________.</blackcard> <!--reprint-->
-
-	<!--Cut these cards to keep an even number of pages -->
-	<whitecard>Teh Interwebz.</whitecard>
-	<whitecard>A Raccoon Sex Dungeon.</whitecard>
-	<whitecard><img src="trollface.svg"/></whitecard>
-
-	<!-- Reprints of cards -->
-	<!--
-	<whitecard>Cutting his dick off.</whitecard>
-	<whitecard>Tapeworms.</whitecard>
-	<whitecard>That guy who is pretty much a dick but you&#8217;re still friends with him anyway.</whitecard>
-	-->
+	<blackcard pick="1">What did the U.S. airdrop to the children of Afghanistan?</blackcard>
 </cardset>

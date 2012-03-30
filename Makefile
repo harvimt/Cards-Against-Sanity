@@ -1,7 +1,7 @@
-all: 2x3
+all: acm-expn patch
 
-2x3:
-	sh cards.sh cards.xml cards-2x3.xsl cards-2x3.pdf
+acm-expn:
+	sh cards.sh cards.acm-expn.xml cards-2x3.xsl cards.acm-expn.pdf acm-expn.rst
 
-2x2:
-	sh cards.sh cards.xml cards-2x2.xsl cards-2x2.pdf
+patch:
+	sh cards.sh cards.patch.xml cards-2x3.xsl cards-patch.pdf patch.rst
