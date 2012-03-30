@@ -41,8 +41,8 @@ croppdf (){
 #Split White Cards From Black Cards
 rm -f BlackCards{,-nocrop}.p{df,bm} WhiteCards{,-nocrop}.p{df,bm} AllCards.pbm
 rm -f card-images/*.pbm
-stapler sel CardsAgainstHumanity.pdf 2-24 WhiteCards-nocrop.pdf
-stapler sel CardsAgainstHumanity.pdf 25-29 BlackCards-nocrop.pdf
+stapler sel CAH_MainGame.pdf 2-24 WhiteCards-nocrop.pdf
+stapler sel CAH_MainGame.pdf 25-29 BlackCards-nocrop.pdf
 
 #crop out margins
 

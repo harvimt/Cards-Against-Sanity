@@ -49,7 +49,8 @@
 	</xsl:template>
 
 	<xsl:template match="whitecard">
-			<fo:table-cell border="solid black" padding=".1in" width="2in" height="1.8in">
+		<fo:table-cell border="1px solid black" padding=".1in" width="2in" height="1.8in" font-size="16pt"
+			font-family="sans-serif">
 
 				<fo:block><xsl:apply-templates/></fo:block>
 
@@ -59,36 +60,28 @@
 		</fo:table-cell>
 	</xsl:template>
 
-	<xsl:template match="blackcard[@pick=1]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white">
+	<xsl:template match="blackcard">
+			<fo:table-cell border="1px solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white" font-size="14pt">
 
-				<fo:block><xsl:value-of select="text()"/></fo:block>
+				<fo:block><xsl:apply-templates/></fo:block>
 
-				<fo:block-container absolute-position="absolute" top="1.6in">
-					<fo:block><fo:external-graphic src="url('blackfooter.svg')"/></fo:block>
-			</fo:block-container>
-		</fo:table-cell>
-	</xsl:template>
-
-	<xsl:template match="blackcard[@pick=2]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white">
-
-				<fo:block><xsl:value-of select="text()"/></fo:block>
-
-				<fo:block-container absolute-position="absolute" top="1.6in">
-					<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick2.svg')"/></fo:block>
-			</fo:block-container>
-		</fo:table-cell>
-	</xsl:template>
-
-	<xsl:template match="blackcard[@pick=3]">
-			<fo:table-cell border="solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white">
-
-				<fo:block><xsl:value-of select="text()"/></fo:block>
-
-				<fo:block-container absolute-position="absolute" top="1.35in">
-					<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick3.svg')"/></fo:block>
-			</fo:block-container>
+				<xsl:choose>
+					<xsl:when test="./@pick = 1">
+						<fo:block-container absolute-position="absolute" top="1.6in">
+							<fo:block><fo:external-graphic src="url('blackfooter.svg')"/></fo:block>
+						</fo:block-container>
+					</xsl:when>
+					<xsl:when test="./@pick = 2">
+						<fo:block-container absolute-position="absolute" top="1.6in">
+							<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick2.svg')"/></fo:block>
+						</fo:block-container>
+					</xsl:when>
+					<xsl:when test="./@pick = 3">
+						<fo:block-container absolute-position="absolute" top="1.35in">
+							<fo:block><fo:external-graphic content-width="1.8in" src="url('blackfooterpick3.svg')"/></fo:block>
+						</fo:block-container>
+					</xsl:when>
+				</xsl:choose>
 		</fo:table-cell>
 	</xsl:template>
 
