@@ -49,7 +49,7 @@
 	</xsl:template>
 
 	<xsl:template match="whitecard">
-		<fo:table-cell border="1px solid black" padding=".1in" width="2in" height="1.8in" font-size="16pt"
+		<fo:table-cell border="1px solid black" padding=".1in" width="2in" height="1.8in" font-size="14pt"
 			font-family="sans-serif">
 
 				<fo:block><xsl:apply-templates/></fo:block>
