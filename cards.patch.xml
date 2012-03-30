@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Patch to upgrade CAH to from 1.0 to v1.2 -->
+<cardset>
+	<!-- New White Cards -->
+	<whitecard>A Bop It™.</whitecard>
+	<whitecard>Actually taking candy from a baby.</whitecard>
+	<whitecard>A death ray.</whitecard>
+	<whitecard>A defective condom.</whitecard>
+	<whitecard>A gentle caress of the inner thigh.</whitecard>
+	<whitecard>A homoerotic volleyball montage.</whitecard>
+	<whitecard>A mopey zoo lion.</whitecard>
+	<whitecard>Boogers.</whitecard>
+	<whitecard>Breaking out into song and dance.</whitecard>
+	<whitecard>Charisma.</whitecard>
+	<whitecard>Chutzpah.</whitecard>
+	<whitecard>Crystal meth.</whitecard>
+	<whitecard>Customer service representatives.</whitecard>
+	<whitecard>Embryonic stem cells.</whitecard>
+	<whitecard>Erectile dysfunction.</whitecard>
+	<whitecard>Euphoria™ by Calvin Klein.</whitecard>
+	<whitecard>Exactly what you’d expect.</whitecard>
+	<whitecard>Expecting a burp and vomiting on the floor.</whitecard>
+	<whitecard>Firing a rifle into the air while balls deep in a squealing hog.</whitecard>
+	<whitecard>Flying sex snakes.</whitecard>
+	<whitecard>Getting naked and watching Nickelodeon.</whitecard>
+	<whitecard>Home video of Oprah sobbing into a Lean Cuisine®.</whitecard>
+	<whitecard>Horrifying laser hair removal accidents.</whitecard>
+	<whitecard>Hot cheese.</whitecard>
+	<whitecard>Jibber-jabber.</whitecard>
+	<!--<whitecard>Lady Gaga.</whitecard>--><!-- Already included in the ACM Expansion-->
+	<whitecard>MechaHitler.</whitecard>
+	<whitecard>Morgan Freeman’s voice.</whitecard>
+	<whitecard>My inner demons.</whitecard>
+	<whitecard>My Vagina.</whitecard>
+	<whitecard>Natural male enhancement.</whitecard>
+	<whitecard>Nicolas Cage.</whitecard>
+	<whitecard>Pac-Man uncontrollably guzzling cum.</whitecard>
+	<whitecard>Passive-aggressive Post-it notes.</whitecard>
+	<whitecard>Poor life choices.</whitecard>
+	<whitecard>Shapeshifters.</whitecard>
+	<whitecard>Soup that is too hot.</whitecard>
+	<whitecard>Switching to Geico®.</whitecard>
+	<whitecard>Teenage Pregnancy.</whitecard>
+	<whitecard>The Care Bear Stare.</whitecard>
+	<whitecard>The chronic.</whitecard>
+	<whitecard>The Donald Trump Seal of Approval.</whitecard>
+	<whitecard>The Little Engine That Could.</whitecard>
+	<whitecard>The true meaning of Christmas.</whitecard>
+	<whitecard>The Übermensch.</whitecard>
+	<whitecard>Unfathomable stupidity.</whitecard>
+	<whitecard>Vigilante justice.</whitecard>
+
+	<!--Changed White Cards-->
+	<!--Insinificant changes -->
+	<!--
+	<whitecard>The Rev. Dr. Martin Luther King, Jr.</whitecard>
+	<whitecard>“Tweeting”.</whitecard>
+	<whitecard>Steven Hawking talking dirty.</whitecard>
+	<whitecard>A time travel paradox.</whitecard>
+	<whitecard>GoGurt®.</whitecard>
+	-->
+
+	<!--New Black Cards-->
+	<blackcard pick="1">Dear Abby, I’m having some trouble with ________ and would like your advice.</blackcard>
+	<blackcard pick="1">In L.A. County Jail, word is you can trade 200 cigarettes for ________.</blackcard>
+	<blackcard pick="1">Life for American Indians was forever changed when the White Man introduced them to ________.</blackcard>
+	<blackcard pick="1">Maybe she’s born with it. Maybe it’s ________.</blackcard>
+	<blackcard pick="1">Next on ESPN2, the World Series of ________.</blackcard>
+	<blackcard pick="2">Step 1: ________. Step 2: ________. Step 3: Profit.</blackcard>
+
+	<!-- Changed Black Cards-->
+	<blackcard pick="2">Rumor has it that Vladimir Putin&#8217;s favorite dish is ________ stuffed with ________.</blackcard> <!-- forgot the pick="2" before-->
+	<blackcard pick="1">After the earthquake, Sean Penn brought ________ to the people of Haiti.</blackcard>
+
+	<!--<blackcard pick="1">What did the U.S. airdrop to the children of Afghanistan?</blackcard>-->
+
+	<!-- Missprints/Problems with ACM Expansion-->
+	<!-- New Cards -->
+	<blackcard pick="2">_______ / _______, this years hottest slash fiction. </blackcard>
+	<blackcard pick="1">________, there&#8217;s a subreddit for that.</blackcard>
+	<blackcard pick="1">I&#8217;m sorry, Professor, but I couldn&#8217;t complete my homework because of ________.</blackcard> <!--reprint-->
+
+	<!--Cut these cards to keep an even number of pages -->
+	<whitecard>Teh Interwebz.</whitecard>
+	<whitecard>A Raccoon Sex Dungeon.</whitecard>
+	<whitecard><img src="trollface.svg"/></whitecard>
+
+	<!-- Reprints of cards -->
+	<!--
+	<whitecard>Cutting his dick off.</whitecard>
+	<whitecard>Tapeworms.</whitecard>
+	<whitecard>That guy who is pretty much a dick but you&#8217;re still friends with him anyway.</whitecard>
+	-->
+</cardset>
