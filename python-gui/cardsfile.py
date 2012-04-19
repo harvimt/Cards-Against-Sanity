@@ -36,8 +36,9 @@ A CardsFile class, describing a Cards Against Humanity class file
 
 *** I REPEAT THIS PYTHON SOURCE FILE USES TABS, DEAL WITH IT ***
 """
-from lxml import etree
 from collections import namedtuple
+import re
+from lxml import etree
 
 # white cards are just strings, black cards consist of "pick" either 1,2,3 or "auto" and text
 # text may contain any number of underscores (preferably 8) to count for blank
@@ -80,6 +81,7 @@ class CardsFile(object):
 	def importXML(self, xml_file):
 		"""
 		import an xml file from `xml_file` and parse the results to `self.whitecards` and `self.blackcards`
+		the xml tree is not saved in self.tree
 
 		xml_file -- a filename or file-like object to read XML data from
 		"""
@@ -91,7 +93,12 @@ class CardsFile(object):
 
 		for tag in tree.findall('/blackcard'):
 			pick = tag.get('pick') or 'auto'
-			self.blackcards.append( BlackCard(pick, tag.text) )
+			text = tag.text or ''
+			for blank_tag in tag.findall('blank'):
+				text += 8 * '_'
+				text += blank_tag.tail
+
+			self.blackcards.append( BlackCard(pick, text) )
 
 	def makeTree(self):
 		"""
@@ -105,9 +112,19 @@ class CardsFile(object):
 
 		for blackcard in self.blackcards:
 			tag = etree.Element('blackcard')
-			tag.text = blackcard.text #TODO turn underscores into <blank/>
+			#tag.text = blackcard.text #TODO turn underscores into <blank/>
+			segments = re.split('_+', blackcard.text)
+
+			tag.text = segments[0]
+
+			for segment in segments[1:]:
+				blank_tag = etree.Element('blank')
+				blank_tag.tail = segment
+				tag.append(blank_tag)
+
 			if blackcard.pick != 'auto':
 				tag.set('pick', blackcard.pick)
+
 			self.tree.append(tag)
 
 	def save(self):
