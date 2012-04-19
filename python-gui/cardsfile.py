@@ -1,29 +1,88 @@
+#!/usr/bin/python2
+# coding=utf-8
+# NOTE: THIS PYTHON SOURCE FILE USES TABS DEAL WITH IT
+#
+# ⓒ 2012, Mark Harviston
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# Redistributions of source code must retain the above copyright notice,
+# this list of conditions and the following disclaimer.
+# Redistributions in binary form must reproduce the above copyright
+# notice, this list of conditions and the following disclaimer in the
+# documentation and/or other materials provided with the distribution.
+# Neither the name of the <ORGANIZATION> nor the names of its
+# contributors may be used to endorse or promote products derived
+# from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+# CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+# INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+# AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+# IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+# THE POSSIBILITY OF SUCH DAMAGE.
+
+"""
+A CardsFile class, describing a Cards Against Humanity class file
+
+*** I REPEAT THIS PYTHON SOURCE FILE USES TABS, DEAL WITH IT ***
+"""
 from lxml import etree
+from collections import namedtuple
+
+# white cards are just strings, black cards consist of "pick" either 1,2,3 or "auto" and text
+# text may contain any number of underscores (preferably 8) to count for blank
+BlackCard = namedtuple('BlackCard', ('pick', 'text') )
 
 class CardsFile(object):
 	def __init__(self, filename=None):
+		"""
+		filename (optional) -- the filename to save the file to (can change, unneccessary)
+		"""
 		self.filename = filename
-		self.whitecards = []
-		self.blackcards = []
+		self.whitecards = [] # list of strings
+		self.blackcards = [] # list of BlackCard
 		if filename is not None:
 			self.importXML(filename)
 
-	def exportToFo(self, fo_file):
+	def exportToFO(self, fo_file, xslt_file=None):
 		"""
 		export the card file to XSL-FO format
-		fo_file -- a filename or file-like object to write to.
-		"""
-		self.save()
 
-		result = lxml
+		fo_file -- a filename or file-like object to write to.
+		xslt_file (optional) -- a filename or file-like object pointing to the XSLT file to use for transformations, by default uses cards-2x2.xsl
+		"""
+		self.makeTree()
+
+		if xslt_file is None:
+			xslt_file = '../cards-2x2.xsl' #FIXME, don't hard-code file paths
+
+		xslt_tree = etree.XSLT(etree.parse(xslt_file))
+		trans_tree = xslt_tree.transform(self.tree)
+
 		if type(fo_file) is str:
 			fo_file = open(fo_file, 'w')
+
 		try:
-			
+			fo_file.write( etree.tostring(trans_tree) )
 		finally:
 			fo_file.close()
 
-	def importFromXML(self, xml_file):
+	def importXML(self, xml_file):
+		"""
+		import an xml file from `xml_file` and parse the results to `self.whitecards` and `self.blackcards`
+
+		xml_file -- a filename or file-like object to read XML data from
+		"""
 		self.whitecards = []
 		self.blackcards = []
 		tree = etree.parse(xml_file)
@@ -32,9 +91,12 @@ class CardsFile(object):
 
 		for tag in tree.findall('/cardset/blackcard'):
 			pick = tag.get('pick') or 'auto'
-			self.blackcards.append( {'pick':pick, 'text':tag.text})
+			self.blackcards.append( BlackCard(pick, tag.text) )
 
 	def makeTree(self):
+		"""
+		convert `self.whitecards` and `self.blackcards` to an XML tree and store that tree at `self.tree`
+		"""
 		self.tree = etree.Element('cardset')
 		for whitecard in self.whitecards:
 			tag = etree.Element('whitecard')
@@ -43,15 +105,20 @@ class CardsFile(object):
 
 		for blackcard in self.blackcards:
 			tag = etree.Element('blackcard')
-			tag.text = blackcard['text']
-			if blackcard['pick'] != 'auto':
-				tag.set('pick', blackcard['pick'])
+			tag.text = blackcard.text #TODO turn underscores into <blank/>
+			if blackcard.pick != 'auto':
+				tag.set('pick', blackcard.pick)
 			self.tree.append(tag)
 
 	def save(self):
-		self.exportToXML(self.filename)
+		""" Save the file to self.filename"""
+		self.exportXML(self.filename)
 
-	def exportToXML(self, xml_file):
+	def exportXML(self, xml_file):
+		"""
+		use `self.makeTree` to make the tree
+		xml_file -- filename or file like object to write xml data to
+		"""
 		self.makeTree()
 		if type(xml_file) is str:
 			xml_file = open(xml_file,'w')
