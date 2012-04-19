@@ -2,7 +2,7 @@
 <!-- Some of these taken from:
 http://boardgamegeek.com/thread/738904/diy-card-ideas
 others from:
-http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________against________humanity________blank________card________suggestions/
+http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>against<blank/>humanity<blank/>blank<blank/>card<blank/>suggestions/
 (and still others from myself/my friends at the ACM)
 -->
 
@@ -91,43 +91,42 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your________cards________again
 	<whitecard>A bitchy email from your boss.</whitecard>
 	<whitecard>A bushy mustache.</whitecard>
 	<whitecard>Going gay for Ryan Gossling.</whitecard>
-	<blackcard pick="1">What is my favorite application for Rule 34?</blackcard>
-	<blackcard pick="2">________ &amp; ________, still a better love story than Twilight.</blackcard>
-	<blackcard pick="1">The Good, the Bad, and the ________.</blackcard>
-	<blackcard pick="1">________, there&#8217;s a subreddit for that.</blackcard>
-	<blackcard pick="2">In the new summer blockbuster, ________ must stop ________.</blackcard>
-	<blackcard pick="1">What will the next South Park episode be about?</blackcard>
-	<blackcard pick="1">________, gotta catch &#8216;em all.</blackcard>
-	<blackcard pick="1">Indiana Jones and the Raiders of the Lost ________.</blackcard>
-	<blackcard pick="1">________. Challenge Accepted.</blackcard>
-	<blackcard pick="1">________, My Precious.</blackcard>
-	<blackcard pick="1">I can haz ________?</blackcard>
-	<blackcard pick="3">When I broke up with ________, I left ________, in their ________.</blackcard>
-	<blackcard pick="1">Cthulu demands you sacrifice ________.</blackcard>
-	<blackcard pick="1">Sherlock Holmes and the Case of the Missing ________.</blackcard>
-	<blackcard pick="1">Scientists have reverse engineered alien technology that unlocks the secrets of ________.</blackcard>
-	<blackcard pick="1">It is often argued that our ancestors would have never evolved without the aid of ________.</blackcard>
-	<blackcard pick="1">The sad truth is, at the edge of the universe, there is nothing but ________.</blackcard>
-	<blackcard pick="2">________ a day, keeps ________ away.</blackcard>
-	<blackcard pick="1">There is a time for peace, a time for war, and a time for ________.</blackcard>
-	<blackcard pick="1">If a pot of gold is on one end of the rainbow, what is on the other?</blackcard>
-	<blackcard pick="1">A fortune teller told me I will live a life filled with ________.</blackcard>
-	<blackcard pick="1">The Himalayas are filled with many perils, such as ________.</blackcard>
-	<blackcard pick="1">The road to success is paved with ________.</blackcard>
-	<blackcard pick="1">________ in the morning, sailors take warning.</blackcard>
-	<blackcard pick="1">Virgil then guided Dante to the 10th circle of hell, where sinners were condemned to an eternity of ________.</blackcard>
-	<blackcard pick="1">I work out so that I can look good when I&#8217;m ________.</blackcard>
-	<blackcard pick="1">What&#8217;s the time? ________ time!</blackcard>
-	<blackcard pick="1">&#8220;Watson!&#8221; Holmes exclaimed, &#8220;This man was obviously killed by ________!&#8221;</blackcard>
-	<blackcard pick="1">The theme for our senior prom will be ________.</blackcard>
-	<blackcard pick="1">Genius is 10% inspiration and 90% ________.</blackcard>
-	<blackcard pick="1">I will not eat them Sam-I-Am. I will not eat ________.</blackcard>
-	<blackcard pick="1">Go-go Gadget ________!</blackcard>
-	<blackcard pick="1">The best xmas present my grandma ever gave me was ________.</blackcard>
-
-	<!--new set-->
-	<blackcard pick="2">________ / ________, this years hottest slash fiction. </blackcard>
 	<whitecard>Teh Interwebz.</whitecard>
 	<whitecard>A Raccoon Sex Dungeon.</whitecard>
+
+	<blackcard>What is my favorite application for Rule 34?</blackcard>
+	<blackcard><blank/> &amp; <blank/>, still a better love story than Twilight.</blackcard>
+	<blackcard>The Good, the Bad, and the <blank/>.</blackcard>
+	<blackcard><blank/>, there&#8217;s a subreddit for that.</blackcard>
+	<blackcard>In the new summer blockbuster, <blank/> must stop <blank/>.</blackcard>
+	<blackcard>What will the next South Park episode be about?</blackcard>
+	<blackcard><blank/>, gotta catch &#8216;em all.</blackcard>
+	<blackcard>Indiana Jones and the Raiders of the Lost <blank/>.</blackcard>
+	<blackcard><blank/>. Challenge Accepted.</blackcard>
+	<blackcard><blank/>, My Precious.</blackcard>
+	<blackcard>I can haz <blank/>?</blackcard>
+	<blackcard>When I broke up with <blank/>, I left <blank/>, in their <blank/>.</blackcard>
+	<blackcard>Cthulu demands you sacrifice <blank/>.</blackcard>
+	<blackcard>Sherlock Holmes and the Case of the Missing <blank/>.</blackcard>
+	<blackcard>Scientists have reverse engineered alien technology that unlocks the secrets of <blank/>.</blackcard>
+	<blackcard>It is often argued that our ancestors would have never evolved without the aid of <blank/>.</blackcard>
+	<blackcard>The sad truth is, at the edge of the universe, there is nothing but <blank/>.</blackcard>
+	<blackcard><blank/> a day, keeps <blank/> away.</blackcard>
+	<blackcard>There is a time for peace, a time for war, and a time for <blank/>.</blackcard>
+	<blackcard>If a pot of gold is on one end of the rainbow, what is on the other?</blackcard>
+	<blackcard>A fortune teller told me I will live a life filled with <blank/>.</blackcard>
+	<blackcard>The Himalayas are filled with many perils, such as <blank/>.</blackcard>
+	<blackcard>The road to success is paved with <blank/>.</blackcard>
+	<blackcard><blank/> in the morning, sailors take warning.</blackcard>
+	<blackcard>Virgil then guided Dante to the 10th circle of hell, where sinners were condemned to an eternity of <blank/>.</blackcard>
+	<blackcard>I work out so that I can look good when I&#8217;m <blank/>.</blackcard>
+	<blackcard>What&#8217;s the time? <blank/> time!</blackcard>
+	<blackcard>&#8220;Watson!&#8221; Holmes exclaimed, &#8220;This man was obviously killed by <blank/>!&#8221;</blackcard>
+	<blackcard>The theme for our senior prom will be <blank/>.</blackcard>
+	<blackcard>Genius is 10% inspiration and 90% <blank/>.</blackcard>
+	<blackcard>I will not eat them Sam-I-Am. I will not eat <blank/>.</blackcard>
+	<blackcard>Go-go Gadget <blank/>!</blackcard>
+	<blackcard>The best xmas present my grandma ever gave me was <blank/>.</blackcard>
+	<blackcard><blank/> / <blank/>, this years hottest slash fiction. </blackcard>
 
 </cardset>

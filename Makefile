@@ -1,7 +1,26 @@
-all: acm-expn patch
+all: acm-expn
 
-acm-expn:
-	sh cards.sh cards.acm-expn.xml cards-2x3.xsl cards.acm-expn.pdf acm-expn.rst
+acm-expn: cards.acm-expn.final.pdf
+patch: cards.patch.final.pdf
 
-patch:
-	sh cards.sh cards.patch.xml cards-2x3.xsl cards-patch.pdf patch.rst
+XSL=cards-2x2.xsl
+%.fo: %.xml
+	xsltproc --xinclude -o $@ $(XSL) $<
+	#java -jar /usr/share/java/xalan.jar -IN $< -OUT $@ -XSL $(XSL)
+
+
+%.fo.pdf: %.fo
+	fop -fo $< -pdf $@
+
+%.rst.pdf: %.rst
+	rst2pdf -o $@ $<
+
+%.joined.pdf: %.fo.pdf %.rst.pdf
+	pdftk $< cat output $@
+#	stapler cat %< $@
+
+%.final.pdf: %.joined.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ $<
+
+clean:
+	rm -f *.pdf *.fo
