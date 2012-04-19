@@ -67,7 +67,7 @@ class CardsFile(object):
 			xslt_file = '../cards-2x2.xsl' #FIXME, don't hard-code file paths
 
 		xslt_tree = etree.XSLT(etree.parse(xslt_file))
-		trans_tree = xslt_tree.transform(self.tree)
+		trans_tree = xslt_tree(self.tree)
 
 		if type(fo_file) is str:
 			fo_file = open(fo_file, 'w')
@@ -86,10 +86,10 @@ class CardsFile(object):
 		self.whitecards = []
 		self.blackcards = []
 		tree = etree.parse(xml_file)
-		for tag in tree.findall('/cardset/whitecard'):
+		for tag in tree.findall('/whitecard'):
 			self.whitecards.append(tag.text)
 
-		for tag in tree.findall('/cardset/blackcard'):
+		for tag in tree.findall('/blackcard'):
 			pick = tag.get('pick') or 'auto'
 			self.blackcards.append( BlackCard(pick, tag.text) )
 
