@@ -61,11 +61,11 @@ class AboutDialog(QDialog, Ui_aboutDialog):
 
 		self.setupUi(self)
 
+		self.okBtn.clicked.connect(self.onOK)
+
 	@trace
 	def onOK(self):
-		pass
-
-	def onOK(self):
+		self.close()
 		pass
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -88,10 +88,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.actionExportFO.triggered.connect(self.menuExportFO)
 
 		self.actionAbout.triggered.connect(self.menuAbout)
-	
+
 	@trace
 	def menuAbout(self):
-		pass
+		aboutDlg = AboutDialog(self)
+		aboutDlg.show()
+		aboutDlg.raise_()
 
 	@trace
 	def addWhiteCard(self):
