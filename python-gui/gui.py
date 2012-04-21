@@ -71,7 +71,6 @@ class AboutDialog(QDialog, Ui_aboutDialog):
 
 	def onOK(self):
 		self.close()
-		pass
 
 class WhiteCardList(QAbstractListModel):
 	def __init__(self, cardsfile):
@@ -157,7 +156,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.cardsfile.filename, _ = QFileDialog.getSaveFileName(self, 'Save Cards Against Humanity File', \
 			self.cardsfile.filename, 'Cards Against Humanity File (*.cah, *.xml)')
 		self.cardsfile.save()
-		pass #TODO
 
 	def menuExportPDF(self):
 		if self.cardsfile.filename is not None:
@@ -165,7 +163,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		else:
 			dirname = None
 
-		fileName, _ = QFileDialog.getSaveFileName(self, 'Save PDF File', dirname, 'Portable Document Format (*.pdf)')
+		fileName, _ = QFileDialog.getSaveFileName(self, 'Export PDF File', dirname, 'Portable Document Format (*.pdf)')
 		self.cardsfile.exportToPDF(fileName)
 
 	def menuExportFO(self):
@@ -174,7 +172,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		else:
 			dirname = None
 
-		fileName, _ = QFileDialog.getSaveFileName(self, 'Save XSL Formatting Objects File', dirname, 'XSL Formatting Objects File (*.fo, *.xml)')
+		fileName, _ = QFileDialog.getSaveFileName(self, 'Export XSL Formatting Objects File', dirname, 'XSL Formatting Objects File (*.fo, *.xml)')
 		self.cardsfile.exportToFO(fileName)
 
 	def menuPrintPreview(self):
