@@ -92,19 +92,27 @@ class WhiteCardList(QAbstractListModel):
 		else:
 			return None
 
-class BlackCardList(QAbstractListModel):
+class BlackCardList(QAbstractTableModel):
 	def __init__(self, cardsfile):
 		super(type(self),self).__init__()
 		self.cardsfile = cardsfile
 
-	def headerData(self,section, orientation, role=None):
-		return ['Pick','Card Text']
+	def headerData(self, col, orientation, role=None):
+		if role == Qt.DisplayRole:
+			if col == 0:
+				return 'Pick'
+			elif col == 1:
+				return 'Card Text'
+			else:
+				raise IndexError()
+		else:
+			return None
 
 	def rowCount(self, parent=None):
 		return len(self.cardsfile.blackcards)
 
 	def columnCount(self, parent=None):
-		return 1
+		return 2
 
 	def data(self, index, role=None):
 		if index.isValid() and role == Qt.DisplayRole:
