@@ -93,7 +93,7 @@ class CardsFile(object):
 		Transforms XML to FO and then render the FO with Apache FOP
 
 		pdf_file -- filename or file-like object to put the PDF output
-		xslt_file (optional) -- xslt file to pass to `self.exportToFo`
+		xslt_file (optional) -- xslt file to pass to `self.exportToFO`
 
 		Raises `subprocess.CalledProcessError` if Apache FOP failed to 
 
