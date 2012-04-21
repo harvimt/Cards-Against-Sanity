@@ -64,23 +64,27 @@ class CardsFile(object):
 
 		Raises `NotImplemented` if print preview is not supported on this platform (yet?)
 		"""
-		pdf_file = NamedTemporaryFile()
-		self.exportToPDF(pdf_file)
+		pdf_file = NamedTemporaryFile(suffix='.pdf',delete=False)
+		try:
+			self.exportToPDF(pdf_file)
 
-		#get appropriate "document opener" program for the platform
-		if 'linux' in sys.platform:
-			prog_name = 'xdg-open'
-		elif sys.platform == 'darwin': #Mac OS X
-			prog_name = 'open'
-		elif sys.platform == 'win32': #64 bit windows is still "win32"
-			prog_name = 'start'
-		else:
-			raise NotImplemented('Your Platform (%s) does not support the print preview feature,'\
-				'Export to PDF instead, please report this error' % sys.platform)
+			#get appropriate "document opener" program for the platform
+			if 'linux' in sys.platform:
+				prog_name = 'xdg-open'
+			elif sys.platform == 'darwin': #Mac OS X
+				prog_name = 'open'
+			elif sys.platform == 'win32': #64 bit windows is still "win32"
+				prog_name = 'start'
+			else:
+				raise NotImplemented('Your Platform (%s) does not support the print preview feature,'\
+					'Export to PDF instead, please report this error' % sys.platform)
 
-		subprocess.check_call([prog_name, pdf_file.name])
+			subprocess.check_call([prog_name, pdf_file.name])
 
-		#FIXME? do we need to cleanup the temporary file? when? how?
+		finally:
+			pdf_file.close()
+			#FIXME? since delete=False has been passed, this file will not be deleted when closed (deisreable, since we're
+			#handing it off to the PDF viewer, but
 
 	def exportToPDF(self, pdf_file, xslt_file=None):
 		"""
@@ -91,7 +95,7 @@ class CardsFile(object):
 		pdf_file -- filename or file-like object to put the PDF output
 		xslt_file (optional) -- xslt file to pass to `self.exportToFo`
 
-		Raises `CalledProcessError` if Apache FOP failed to 
+		Raises `subprocess.CalledProcessError` if Apache FOP failed to 
 
 		"""
 		with SpooledTemporaryFile() as fo_file, SpooledTemporaryFile() as stderr:
@@ -101,9 +105,10 @@ class CardsFile(object):
 				pdf_file = open(fo_file, 'w')
 			try:
 				#FIXME fop path will need to be calculated
-				subprocess.check_output(['fop', '-fo', '-', '-pdf', '-'], stdin=fo_file, stdout=pdf_file, stderr=stderr)
-			except CalledProcessError as ex:
-				stderr.rewind()
+				fo_file.seek(0)
+				subprocess.check_call(['fop', '-fo', '-', '-pdf', '-'], stdin=fo_file, stdout=pdf_file, stderr=stderr)
+			except subprocess.CalledProcessError as ex:
+				stderr.seek(0)
 				raise Exception('Apache FOP Failed to create PDF, return code=%d, message=%s' % (ex.returncode,stderr.read()) )
 			finally:
 				pdf_file.close()
@@ -123,14 +128,17 @@ class CardsFile(object):
 
 		xslt_tree = etree.XSLT(etree.parse(xslt_file))
 		trans_tree = xslt_tree(self.tree)
+		close_file = False
 
 		if type(fo_file) is str:
 			fo_file = open(fo_file, 'w')
+			close_file = True
 
 		try:
 			fo_file.write( etree.tostring(trans_tree) )
 		finally:
-			fo_file.close()
+			if close_file:
+				fo_file.close()
 
 	def importXML(self, xml_file):
 		"""
