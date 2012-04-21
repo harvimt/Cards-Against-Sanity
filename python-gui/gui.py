@@ -69,7 +69,6 @@ class AboutDialog(QDialog, Ui_aboutDialog):
 
 		self.okBtn.clicked.connect(self.onOK)
 
-	@trace
 	def onOK(self):
 		self.close()
 		pass
@@ -121,53 +120,45 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 		self.actionAbout.triggered.connect(self.menuAbout)
 
-	@trace
 	def menuAbout(self):
 		aboutDlg = AboutDialog(self)
 		aboutDlg.show()
 		aboutDlg.raise_()
 
-	@trace
 	def addWhiteCard(self):
 		pass #TODO
 
-	@trace
 	def remWhiteCard(self):
 		pass #TODO
 
-	@trace
 	def addBlackCard(self):
 		pass #TODO
 
-	@trace
 	def remBlackCard(self):
 		pass #TODO
 
-	@trace
 	def menuNew(self):
 		pass #TODO
 
-	@trace
 	def menuOpen(self):
 		fileName, _ = QFileDialog.getOpenFileName(self, 'Open Cards Against Humanity File', None, 'Cards Against Humanity File (*.cah, *.xml)')
 		print('filename: %s' % fileName)
-		self.cardsfile.importXML(fileName)
 
-	@trace
+		self.cardsfile.importXML(fileName)
+		self.whiteModel.dataChanged(emit
+
 	def menuSave(self):
 		if self.cardsfile.filename is not None:
 			self.cardsfile.save()
 		else:
 			self.menuSaveAs()
 
-	@trace
 	def menuSaveAs(self):
 		self.cardsfile.filename, _ = QFileDialog.getSaveFileName(self, 'Save Cards Against Humanity File', \
 			self.cardsfile.filename, 'Cards Against Humanity File (*.cah, *.xml)')
 		self.cardsfile.save()
 		pass #TODO
 
-	@trace
 	def menuExportPDF(self):
 		if self.cardsfile.filename is not None:
 			dirname = os.path.dirname(self.cardsfile.filename)
@@ -177,7 +168,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		fileName, _ = QFileDialog.getSaveFileName(self, 'Save PDF File', dirname, 'Portable Document Format (*.pdf)')
 		self.cardsfile.exportToPDF(fileName)
 
-	@trace
 	def menuExportFO(self):
 		if self.cardsfile.filename is not None:
 			dirname = os.path.dirname(self.cardsfile.filename)
@@ -187,7 +177,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		fileName, _ = QFileDialog.getSaveFileName(self, 'Save XSL Formatting Objects File', dirname, 'XSL Formatting Objects File (*.fo, *.xml)')
 		self.cardsfile.exportToFO(fileName)
 
-	@trace
 	def menuPrintPreview(self):
 		self.cardsfile.printPreview()
 
