@@ -54,11 +54,13 @@ app = QApplication(sys.argv)
 
 def trace(fn):
 	""" decorator Annotate function call with debugging info
-	for now, just prints the name of the function"""
+	for now, just prints the name of the function, the arguments and returned value"""
 
 	def fn2(*args,**kwargs):
-		print('tracing: ' + fn.__name__)
-		return fn(*args,**kwargs)
+		print('tracing: %s(%r,%r)' % (fn.__name__, args, kwargs))
+		r = fn(*args,**kwargs)
+		print('returned: %r' % r)
+		return r
 	return fn2
 
 class AboutDialog(QDialog, Ui_aboutDialog):
@@ -77,8 +79,9 @@ class WhiteCardList(QAbstractListModel):
 		super(type(self),self).__init__()
 		self.cardsfile = cardsfile
 
-	def headerData(self,section, orientation, role=None):
-		return ['Card Text']
+	def headerData(self,col, orientation, role=None):
+		if col != 0: raise IndexError()
+		return 'Card Text'
 
 	def rowCount(self, parent=None):
 		return len(self.cardsfile.whitecards)
@@ -98,7 +101,7 @@ class BlackCardList(QAbstractTableModel):
 		self.cardsfile = cardsfile
 
 	def headerData(self, col, orientation, role=None):
-		if role == Qt.DisplayRole:
+		if orientation == Qt.Horizontal and role == Qt.DisplayRole:
 			if col == 0:
 				return 'Pick'
 			elif col == 1:
@@ -176,7 +179,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		print('filename: %s' % fileName)
 
 		self.cardsfile.importXML(fileName)
-		self.whiteModel.dataChanged.emit(None,None)
+
+		#reload models
+		self.whiteList.setModel(None)
+		self.blackList.setModel(None)
+		self.whiteList.setModel(self.whiteModel)
+		self.blackList.setModel(self.blackModel)
 
 	def menuSave(self):
 		if self.cardsfile.filename is not None:
