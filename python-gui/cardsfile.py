@@ -61,6 +61,8 @@ class CardsFile(object):
 	def printPreview(self):
 		"""
 		export to a temporary PDF file and open in the default pdf viewer
+
+		Raises `NotImplemented` if print preview is not supported on this platform (yet?)
 		"""
 		pdf_file = NamedTemporaryFile()
 		self.exportToPDF(pdf_file)
@@ -83,16 +85,26 @@ class CardsFile(object):
 	def exportToPDF(self, pdf_file, xslt_file=None):
 		"""
 		export file to PDF
-		"""
 
-		with SpooledTemporaryFile() as fo_file:
+		Transforms XML to FO and then render the FO with Apache FOP
+
+		pdf_file -- filename or file-like object to put the PDF output
+		xslt_file (optional) -- xslt file to pass to `self.exportToFo`
+
+		Raises `CalledProcessError` if Apache FOP failed to 
+
+		"""
+		with SpooledTemporaryFile() as fo_file, SpooledTemporaryFile() as stderr:
 			self.exportToFO(fo_file, xslt_file)
 
 			if type(pdf_file) is str:
 				pdf_file = open(fo_file, 'w')
 			try:
 				#FIXME fop path will need to be calculated
-				subprocess.check_output(['fop', '-fo', '-', '-pdf', '-'], stdin=fo_file, stdout=pdf_file)
+				subprocess.check_output(['fop', '-fo', '-', '-pdf', '-'], stdin=fo_file, stdout=pdf_file, stderr=stderr)
+			except CalledProcessError as ex:
+				stderr.rewind()
+				raise Exception('Apache FOP Failed to create PDF, return code=%d, message=%s' % (ex.returncode,stderr.read()) )
 			finally:
 				pdf_file.close()
 
@@ -100,7 +112,7 @@ class CardsFile(object):
 		"""
 		export the card file to XSL-FO format
 
-		fo_file -- a filename or file-like object to write to.
+		fo_file -- a filename or file-like object to put the FO (XSL Formatting Objects) output
 		xslt_file (optional) -- a filename or file-like object pointing to the XSLT file to use for transformations,
 			by default uses cards-2x2.xsl
 		"""
