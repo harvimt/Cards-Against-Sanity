@@ -101,8 +101,8 @@ class CardsFile(object):
 		with SpooledTemporaryFile() as fo_file, SpooledTemporaryFile() as stderr:
 			self.exportToFO(fo_file, xslt_file)
 
-			if type(pdf_file) is str:
-				pdf_file = open(fo_file, 'w')
+			if type(pdf_file) is str or type(pdf_file) is unicode:
+				pdf_file = open(pdf_file, 'w')
 			try:
 				#FIXME fop path will need to be calculated
 				fo_file.seek(0)
