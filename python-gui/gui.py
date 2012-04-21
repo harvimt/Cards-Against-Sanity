@@ -86,14 +86,23 @@ class WhiteCardList(QAbstractListModel):
 	def rowCount(self, parent=None):
 		return len(self.cardsfile.whitecards)
 
-	def columnCount(self, parent=None):
-		return 1
-
 	def data(self, index, role=None):
-		if index.isValid() and role == Qt.DisplayRole and index.column() == 0:
+		if index.column() != 0: raise IndexError()
+		if index.isValid() and role in (Qt.DisplayRole, Qt.EditRole):
 			return self.cardsfile.whitecards[index.row()]
 		else:
 			return None
+
+	def flags(self,index):
+		if index.isValid():
+			return Qt.ItemIsEditable | Qt.ItemIsSelectable | Qt.ItemIsDragEnabled | Qt.ItemIsDropEnabled | Qt.ItemIsEnabled
+		else:
+			return None
+
+	def setData(self, index, data, role=None):
+		if index.column() != 0: raise IndexError()
+		if index.isValid():
+			self.cardsfile.whitecards[index.row()] = data
 
 class BlackCardList(QAbstractTableModel):
 	def __init__(self, cardsfile):
@@ -117,11 +126,29 @@ class BlackCardList(QAbstractTableModel):
 	def columnCount(self, parent=None):
 		return 2
 
+	def flags(self,index):
+		if index.isValid():
+			return Qt.ItemIsEditable | Qt.ItemIsSelectable | Qt.ItemIsDragEnabled | Qt.ItemIsDropEnabled | Qt.ItemIsEnabled
+		else:
+			return None
+
 	def data(self, index, role=None):
-		if index.isValid() and role == Qt.DisplayRole:
+		if index.isValid() and role in (Qt.DisplayRole, Qt.EditRole):
 			return self.cardsfile.blackcards[index.row()][index.column()]
 		else:
 			return None
+
+	def setData(self, index, data, role=None):
+		if index.column() == 0:
+			_, text = self.cardsfile.blackcards[index.row()]
+			self.cardsfile.blackcards[index.row()] = BlackCard(data, text)
+		elif index.column() == 1:
+			pick, _ = self.cardsfile.blackcards[index.row()]
+			self.cardsfile.blackcards[index.row()] = BlackCard(pick, data)
+		else:
+			raise IndexError()
+		if index.isValid():
+			self.cardsfile.whitecards[index.row()] = data
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self, parent=None):
@@ -176,7 +203,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 	def menuOpen(self):
 		fileName, _ = QFileDialog.getOpenFileName(self, 'Open Cards Against Humanity File', None, 'Cards Against Humanity File (*.cah, *.xml)')
-		print('filename: %s' % fileName)
+
+		self.cardsfile.filename = fileName
 
 		self.cardsfile.importXML(fileName)
 
@@ -187,12 +215,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.blackList.setModel(self.blackModel)
 
 	def menuSave(self):
+		self.blackModel.submit()
+		self.whiteModel.submit()
+
 		if self.cardsfile.filename is not None:
 			self.cardsfile.save()
 		else:
 			self.menuSaveAs()
 
 	def menuSaveAs(self):
+		self.blackModel.submit()
+		self.whiteModel.submit()
+
 		self.cardsfile.filename, _ = QFileDialog.getSaveFileName(self, 'Save Cards Against Humanity File', \
 			self.cardsfile.filename, 'Cards Against Humanity File (*.cah, *.xml)')
 		self.cardsfile.save()
