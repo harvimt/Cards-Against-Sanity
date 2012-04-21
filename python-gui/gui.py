@@ -78,7 +78,7 @@ class WhiteCardList(QAbstractListModel):
 		self.cardsfile = cardsfile
 
 	def headerData(self,section, orientation, role=None):
-		return None
+		return ['Card Text']
 
 	def rowCount(self, parent=None):
 		return len(self.cardsfile.whitecards)
@@ -87,10 +87,30 @@ class WhiteCardList(QAbstractListModel):
 		return 1
 
 	def data(self, index, role=None):
-		if index.column() == 0:
+		if index.isValid() and role == Qt.DisplayRole and index.column() == 0:
 			return self.cardsfile.whitecards[index.row()]
 		else:
-			raise IndexError('column %d not in range' % index.column())
+			return None
+
+class BlackCardList(QAbstractListModel):
+	def __init__(self, cardsfile):
+		super(type(self),self).__init__()
+		self.cardsfile = cardsfile
+
+	def headerData(self,section, orientation, role=None):
+		return ['Pick','Card Text']
+
+	def rowCount(self, parent=None):
+		return len(self.cardsfile.blackcards)
+
+	def columnCount(self, parent=None):
+		return 1
+
+	def data(self, index, role=None):
+		if index.isValid() and role == Qt.DisplayRole:
+			return self.cardsfile.blackcards[index.row()][index.column()]
+		else:
+			return None
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self, parent=None):
@@ -100,8 +120,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 		#initialize model
 		self.cardsfile = CardsFile()
+
 		self.whiteModel = WhiteCardList(self.cardsfile)
 		self.whiteList.setModel(self.whiteModel)
+		
+		self.blackModel = BlackCardList(self.cardsfile)
+		self.blackList.setModel(self.blackModel)
 
 		#connect signals
 		self.addWhiteBtn.clicked.connect(self.addWhiteCard)
@@ -144,7 +168,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		print('filename: %s' % fileName)
 
 		self.cardsfile.importXML(fileName)
-		self.whiteModel.dataChanged(emit
+		self.whiteModel.dataChanged.emit(None,None)
 
 	def menuSave(self):
 		if self.cardsfile.filename is not None:
