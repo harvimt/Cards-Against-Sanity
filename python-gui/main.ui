@@ -30,7 +30,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="whiteTab">
        <property name="sizePolicy">
@@ -148,9 +148,9 @@
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
-    <addaction name="actionPrint_Preview"/>
-    <addaction name="actionExport_to_PDF"/>
-    <addaction name="actionExport_to_XSL_FO"/>
+    <addaction name="actionPrintPreview"/>
+    <addaction name="actionExportPDF"/>
+    <addaction name="actionExportFO"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -164,13 +164,13 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAbout_Cards_Against_Sanity"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuHelp"/>
   </widget>
-  <action name="actionAbout_Cards_Against_Sanity">
+  <action name="actionAbout">
    <property name="text">
     <string>About Cards Against Sanity</string>
    </property>
@@ -190,17 +190,17 @@
     <string>New</string>
    </property>
   </action>
-  <action name="actionPrint_Preview">
+  <action name="actionPrintPreview">
    <property name="text">
     <string>Print Preview</string>
    </property>
   </action>
-  <action name="actionExport_to_PDF">
+  <action name="actionExportPDF">
    <property name="text">
     <string>Export to PDF</string>
    </property>
   </action>
-  <action name="actionExport_to_XSL_FO">
+  <action name="actionExportFO">
    <property name="text">
     <string>Export to XSL-FO</string>
    </property>
