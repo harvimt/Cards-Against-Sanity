@@ -13,7 +13,7 @@
 # Redistributions in binary form must reproduce the above copyright
 # notice, this list of conditions and the following disclaimer in the
 # documentation and/or other materials provided with the distribution.
-# Neither the name of the <ORGANIZATION> nor the names of its
+# Neither the name of the orgnanization nor the names of its
 # contributors may be used to endorse or promote products derived
 # from this software without specific prior written permission.
 #
@@ -39,6 +39,9 @@ A CardsFile class, describing a Cards Against Humanity class file
 from collections import namedtuple
 import re
 from lxml import etree
+from tempfile import SpooledTemporaryFile, NamedTemporaryFile
+import subprocess
+import sys
 
 # white cards are just strings, black cards consist of "pick" either 1,2,3 or "auto" and text
 # text may contain any number of underscores (preferably 8) to count for blank
@@ -55,12 +58,51 @@ class CardsFile(object):
 		if filename is not None:
 			self.importXML(filename)
 
+	def printPreview(self):
+		"""
+		export to a temporary PDF file and open in the default pdf viewer
+		"""
+		pdf_file = NamedTemporaryFile()
+		self.exportToPDF(pdf_file)
+
+		#get appropriate "document opener" program for the platform
+		if 'linux' in sys.platform:
+			prog_name = 'xdg-open'
+		elif sys.platform == 'darwin': #Mac OS X
+			prog_name = 'open'
+		elif sys.platform == 'win32': #64 bit windows is still "win32"
+			prog_name = 'start'
+		else:
+			raise NotImplemented('Your Platform (%s) does not support the print preview feature,'\
+				'Export to PDF instead, please report this error' % sys.platform)
+
+		subprocess.check_call([prog_name, pdf_file.name])
+
+		#FIXME? do we need to cleanup the temporary file? when? how?
+
+	def exportToPDF(self, pdf_file, xslt_file=None):
+		"""
+		export file to PDF
+		"""
+
+		with SpooledTemporaryFile() as fo_file:
+			self.exportToFO(fo_file, xslt_file)
+
+			if type(pdf_file) is str:
+				pdf_file = open(fo_file, 'w')
+			try:
+				#FIXME fop path will need to be calculated
+				subprocess.check_output(['fop', '-fo', '-', '-pdf', '-'], stdin=fo_file, stdout=pdf_file)
+			finally:
+				pdf_file.close()
+
 	def exportToFO(self, fo_file, xslt_file=None):
 		"""
 		export the card file to XSL-FO format
 
 		fo_file -- a filename or file-like object to write to.
-		xslt_file (optional) -- a filename or file-like object pointing to the XSLT file to use for transformations, by default uses cards-2x2.xsl
+		xslt_file (optional) -- a filename or file-like object pointing to the XSLT file to use for transformations,
+			by default uses cards-2x2.xsl
 		"""
 		self.makeTree()
 
