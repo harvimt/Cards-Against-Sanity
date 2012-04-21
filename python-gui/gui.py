@@ -37,6 +37,7 @@ The Main window GUI class, most gui operations here.
 *** I REPEAT THIS PYTHON SOURCE FILE USES TABS, DEAL WITH IT ***
 """
 import sys
+import os.path
 
 from PySide.QtCore import *
 from PySide.QtGui import *
@@ -47,7 +48,7 @@ from main import Ui_MainWindow
 from aboutDialog import Ui_aboutDialog
 
 #import "Model" file
-from cardsfile import CardsFile
+from cardsfile import CardsFile, BlackCard
 
 app = QApplication(sys.argv)
 
@@ -73,12 +74,38 @@ class AboutDialog(QDialog, Ui_aboutDialog):
 		self.close()
 		pass
 
+class WhiteCardList(QAbstractListModel):
+	def __init__(self, cardsfile):
+		super(type(self),self).__init__()
+		self.cardsfile = cardsfile
+
+	def headerData(self,section, orientation, role=None):
+		return None
+
+	def rowCount(self, parent=None):
+		return len(self.cardsfile.whitecards)
+
+	def columnCount(self, parent=None):
+		return 1
+
+	def data(self, index, role=None):
+		if index.column() == 0:
+			return self.cardsfile.whitecards[index.row()]
+		else:
+			raise IndexError('column %d not in range' % index.column())
+
 class MainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self, parent=None):
 		super(type(self),self).__init__(parent)
 
 		self.setupUi(self)
 
+		#initialize model
+		self.cardsfile = CardsFile()
+		self.whiteModel = WhiteCardList(self.cardsfile)
+		self.whiteList.setModel(self.whiteModel)
+
+		#connect signals
 		self.addWhiteBtn.clicked.connect(self.addWhiteCard)
 		self.removeWhiteBtn.clicked.connect(self.remWhiteCard)
 		self.addBlackBtn.clicked.connect(self.addBlackCard)
@@ -93,8 +120,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.actionExportFO.triggered.connect(self.menuExportFO)
 
 		self.actionAbout.triggered.connect(self.menuAbout)
-
-		self.cardsfile = CardsFile()
 
 	@trace
 	def menuAbout(self):
@@ -124,7 +149,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 	@trace
 	def menuOpen(self):
-		fileName = QFileDialog.getOpenFileName(self, 'Open Cards Against Humanity File', 'Cards Against Humanity File (*.cah, *.xml)')
+		fileName, _ = QFileDialog.getOpenFileName(self, 'Open Cards Against Humanity File', None, 'Cards Against Humanity File (*.cah, *.xml)')
+		print('filename: %s' % fileName)
 		self.cardsfile.importXML(fileName)
 
 	@trace
@@ -136,18 +162,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 	@trace
 	def menuSaveAs(self):
-		self.cardsfile.filename = QFileDialog.getSaveFileName(self, 'Save Cards Against Humanity File', 'Cards Against Humanity File (*.cah, *.xml)')
+		self.cardsfile.filename, _ = QFileDialog.getSaveFileName(self, 'Save Cards Against Humanity File', \
+			self.cardsfile.filename, 'Cards Against Humanity File (*.cah, *.xml)')
 		self.cardsfile.save()
 		pass #TODO
 
 	@trace
 	def menuExportPDF(self):
-		fileName = QFileDialog.getSaveFileName(self, 'Save PDF File', 'Portable Document Format (*.pdf)')
+		if self.cardsfile.filename is not None:
+			dirname = os.path.dirname(self.cardsfile.filename)
+		else:
+			dirname = None
+
+		fileName, _ = QFileDialog.getSaveFileName(self, 'Save PDF File', dirname, 'Portable Document Format (*.pdf)')
 		self.cardsfile.exportToPDF(fileName)
 
 	@trace
 	def menuExportFO(self):
-		fileName = QFileDialog.getSaveFileName(self, 'Save XSL Formatting Objects File', 'XSL Formatting Objects File (*.fo, *.xml)')
+		if self.cardsfile.filename is not None:
+			dirname = os.path.dirname(self.cardsfile.filename)
+		else:
+			dirname = None
+
+		fileName, _ = QFileDialog.getSaveFileName(self, 'Save XSL Formatting Objects File', dirname, 'XSL Formatting Objects File (*.fo, *.xml)')
 		self.cardsfile.exportToFO(fileName)
 
 	@trace

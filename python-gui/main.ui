@@ -30,7 +30,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="whiteTab">
        <property name="sizePolicy">
@@ -44,7 +44,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QListWidget" name="whiteList"/>
+         <widget class="QListView" name="whiteList"/>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Sat Apr 21 04:24:44 2012
+# Created: Sat Apr 21 04:52:45 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.whiteTab.setObjectName("whiteTab")
         self.verticalLayout = QtGui.QVBoxLayout(self.whiteTab)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.whiteList = QtGui.QListWidget(self.whiteTab)
+        self.whiteList = QtGui.QListView(self.whiteTab)
         self.whiteList.setObjectName("whiteList")
         self.verticalLayout.addWidget(self.whiteList)
         self.horizontalLayout_3 = QtGui.QHBoxLayout()
@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
