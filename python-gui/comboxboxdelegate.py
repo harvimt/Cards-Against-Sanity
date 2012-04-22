@@ -1,3 +1,6 @@
+"""
+copied extensively from here: http://stackoverflow.com/questions/10037529/custom-delegate-in-pyside
+"""
 from PySide.QtCore import *
 from PySide.QtGui import *
 
@@ -32,15 +35,3 @@ class ComboBoxDelegate(QStyledItemDelegate):
 			return False
 
 		index.model().setData(index, editor.currentIndex(), Qt.EditRole)
-
-	def paint(self, painter, option, index):
-		currentIndex= index.data(Qt.DisplayRole)
-
-		opt = QStyleOptionComboBox()
-		opt.rect = option.rect
-		currentComboIndex = self.model.createIndex(currentIndex,0)
-		opt.currentText = self.model.data(currentComboIndex, Qt.DisplayRole)
-
-		QApplication.style().drawComplexControl(QStyle.CC_ComboBox, opt, painter)
-
-		super(type(self),self).paint(painter, option, index)

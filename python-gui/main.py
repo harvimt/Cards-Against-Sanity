@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Sat Apr 21 04:52:45 2012
+# Created: Sat Apr 21 16:01:29 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,8 +25,8 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayout = QtGui.QHBoxLayout(self.centralwidget)
-        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout_3 = QtGui.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.tabWidget = QtGui.QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName("tabWidget")
         self.whiteTab = QtGui.QWidget()
@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
         self.blackTab.setObjectName("blackTab")
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.blackTab)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.blackList = QtGui.QListView(self.blackTab)
+        self.blackList = QtGui.QTableView(self.blackTab)
         self.blackList.setObjectName("blackList")
         self.verticalLayout_2.addWidget(self.blackList)
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.removeBlackBtn)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.tabWidget.addTab(self.blackTab, "")
-        self.horizontalLayout.addWidget(self.tabWidget)
+        self.verticalLayout_3.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 678, 20))

@@ -104,7 +104,7 @@ class CardsFile(object):
 			if type(pdf_file) is str or type(pdf_file) is unicode:
 				pdf_file = open(pdf_file, 'w')
 			try:
-				#FIXME fop path will need to be calculated
+				#FIXME fop path will need to be calculated from install location or something
 				fo_file.seek(0)
 				subprocess.check_call(['fop', '-fo', '-', '-pdf', '-'], stdin=fo_file, stdout=pdf_file, stderr=stderr)
 			except subprocess.CalledProcessError as ex:
@@ -130,7 +130,7 @@ class CardsFile(object):
 		trans_tree = xslt_tree(self.tree)
 		close_file = False
 
-		if type(fo_file) is str:
+		if type(fo_file) is str or type(fo_file) is unicode:
 			fo_file = open(fo_file, 'w')
 			close_file = True
 
@@ -199,7 +199,7 @@ class CardsFile(object):
 		xml_file -- filename or file like object to write xml data to
 		"""
 		self.makeTree()
-		if type(xml_file) is str:
+		if type(xml_file) is str or type(xml_file) is unicode:
 			xml_file = open(xml_file,'w')
 		try:
 			xml_file.write( etree.tostring(self.tree))
