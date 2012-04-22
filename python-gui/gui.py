@@ -48,7 +48,6 @@ from aboutDialog import Ui_aboutDialog
 
 #import "Model" file
 from cardsfile import CardsFile, BlackCard
-from comboxboxdelegate import ComboBoxDelegate
 
 app = QApplication(sys.argv)
 
@@ -157,6 +156,46 @@ class BlackCardList(QAbstractTableModel):
 
 		return True
 
+class ComboBoxDelegate(QStyledItemDelegate):
+	"""
+	copied extensively from here: http://stackoverflow.com/questions/10037529/custom-delegate-in-pyside
+	"""
+
+	def __init__(self, model, parent=None):
+		super(ComboBoxDelegate, self).__init__(parent)
+		self.parent= parent
+		self.model= model
+
+	def createEditor(self, parent, option, index):
+
+		if not index.isValid():
+			return False
+
+		if index.column() != 0:
+			return super(ComboBoxDelegate, self).createEditor(parent, option, index)
+
+		comboBox = QComboBox(parent)
+		comboBox.setModel(self.model)
+		value = index.data(Qt.EditRole)
+		#self.comboBox.setCurrentIndex(value)
+
+		return comboBox
+
+	def setEditorData(self, editor, index):
+		if index.column() != 0:
+			return super(ComboBoxDelegate, self).setEditorData(editor, index)
+		value = index.data(Qt.EditRole)
+		#editor.setCurrentIndex(value)
+
+	def setModelData(self, editor, model, index):
+		if index.column() != 0:
+			return super(ComboBoxDelegate, self).setModelData(editor, model, index)
+
+		if not index.isValid():
+			return False
+
+		#index.model().setData(index, editor.currentIndex(), Qt.EditRole)
+
 class MainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self, parent=None):
 		super(type(self),self).__init__(parent)
@@ -192,7 +231,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 		combodelegate = ComboBoxDelegate( QStringListModel(['auto','0','1','2']) )
 
-		self.blackList.setItemDelegateForColumn(0, combodelegate)
+		self.blackList.setItemDelegate(combodelegate)
 
 	def menuAbout(self):
 		aboutDlg = AboutDialog(self)
