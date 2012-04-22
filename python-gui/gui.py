@@ -276,7 +276,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		pass #TODO
 
 	def menuOpen(self):
-		fileName, _ = QFileDialog.getOpenFileName(self, 'Open Cards Against Humanity File', None, 'Cards Against Humanity File (*.cah, *.xml)')
+		docs_dir = QDesktopServices.storageLocation(QDesktopServices.StandardLocation.)
+		fileName = QFileDialog.getOpenFileName(self, 'Open Cards Against Humanity File', \
+				docs_dir, 'Cards Against Humanity File (*.cah, *.xml)')[0]
+		if fileName is None: return
 
 		self.cardsfile.filename = fileName
 
@@ -312,6 +315,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 			dirname = None
 
 		fileName = QFileDialog.getSaveFileName(self, 'Export PDF File', dirname, 'Portable Document Format (*.pdf)')[0]
+		if fileName is None: return
+
 		self.cardsfile.exportToPDF(fileName)
 
 	def menuExportFO(self):
@@ -319,6 +324,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 			dirname = os.path.dirname(self.cardsfile.filename)
 		else:
 			dirname = None
+
+		if fileName is None: return
 
 		fileName = QFileDialog.getSaveFileName(self, 'Export XSL Formatting Objects File', dirname, 'XSL Formatting Objects File (*.fo, *.xml)')[0]
 		self.cardsfile.exportToFO(fileName)
