@@ -209,7 +209,7 @@ class ComboBoxDelegate(QStyledItemDelegate):
 		if cboIdx == 0:
 			value = 'auto'
 		else:
-			value = str(vboIdx)
+			value = str(cboIdx)
 
 		index.model().setData(index, value, Qt.EditRole)
 
