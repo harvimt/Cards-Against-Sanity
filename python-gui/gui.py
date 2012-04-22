@@ -111,7 +111,6 @@ class BlackCardList(QAbstractTableModel):
 		super(type(self),self).__init__()
 		self.cardsfile = cardsfile
 
-
 	def headerData(self, col, orientation, role=None):
 		if orientation == Qt.Horizontal and role == Qt.DisplayRole:
 			if col == 0:
@@ -177,7 +176,13 @@ class ComboBoxDelegate(QStyledItemDelegate):
 		comboBox = QComboBox(parent)
 		comboBox.setModel(self.model)
 		value = index.data(Qt.EditRole)
-		#self.comboBox.setCurrentIndex(value)
+
+		if value == 'auto':
+			cboIdx = 0
+		else:
+			cboIdx = int(value)
+
+		comboBox.setCurrentIndex(cboIdx)
 
 		return comboBox
 
@@ -185,7 +190,13 @@ class ComboBoxDelegate(QStyledItemDelegate):
 		if index.column() != 0:
 			return super(ComboBoxDelegate, self).setEditorData(editor, index)
 		value = index.data(Qt.EditRole)
-		#editor.setCurrentIndex(value)
+
+		if value == 'auto':
+			cboIdx = 0
+		else:
+			cboIdx = int(value)
+
+		editor.setCurrentIndex(cboIdx)
 
 	def setModelData(self, editor, model, index):
 		if index.column() != 0:
@@ -194,7 +205,13 @@ class ComboBoxDelegate(QStyledItemDelegate):
 		if not index.isValid():
 			return False
 
-		#index.model().setData(index, editor.currentIndex(), Qt.EditRole)
+		cboIdx = editor.currentIndex()
+		if cboIdx == 0:
+			value = 'auto'
+		else:
+			value = str(vboIdx)
+
+		index.model().setData(index, value, Qt.EditRole)
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self, parent=None):
@@ -229,7 +246,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 		#set item delegate, so blackList uses a combobox for the first column
 
-		combodelegate = ComboBoxDelegate( QStringListModel(['auto','0','1','2']) )
+		combodelegate = ComboBoxDelegate( QStringListModel(['auto','1','2','3']) )
 
 		self.blackList.setItemDelegate(combodelegate)
 
