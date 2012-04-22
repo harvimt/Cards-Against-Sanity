@@ -44,8 +44,12 @@ import subprocess
 import sys
 import os
 
+from PySide.QtGui import QDesktopServices
+from QtCore import QUrl
+
 def getFOPPath(FOP_HOME=''):
-	if FOP_HOME == '' and 'FOP_HOME' in os.environ
+	""" Get the path to FOP """
+	if FOP_HOME == '' and 'FOP_HOME' in os.environ:
 		FOP_HOME = os.environ['FOP_HOME']
 
 	if sys.platform == 'win32':
@@ -55,9 +59,9 @@ def getFOPPath(FOP_HOME=''):
 
 	path = os.path.join(FOP_HOME,'fop' + ext)
 	if os.path.exists(path):
-
-	return path
-
+		return path
+	else:
+		return None #TODO use builtin fop
 
 # white cards are just strings, black cards consist of "pick" either 1,2,3 or "auto" and text
 # text may contain any number of underscores (preferably 8) to count for blank
@@ -84,6 +88,10 @@ class CardsFile(object):
 		try:
 			self.exportToPDF(pdf_file)
 
+			"""
+			#this clever pure-python implementation is probably not as portable as letting Qt handle it
+			#though I'm not sure
+
 			#get appropriate "document opener" program for the platform
 			if 'linux' in sys.platform:
 				prog_name = 'xdg-open'
@@ -94,13 +102,14 @@ class CardsFile(object):
 			else:
 				raise NotImplemented('Your Platform (%s) does not support the print preview feature,'\
 					'Export to PDF instead, please report this error' % sys.platform)
-
 			subprocess.check_call([prog_name, pdf_file.name])
+			"""
 
+			QDesktopServices.openUrl(QUrl.fromLocalFile(pdf_file.name))
 		finally:
 			pdf_file.close()
 			#FIXME? since delete=False has been passed, this file will not be deleted when closed (deisreable, since we're
-			#handing it off to the PDF viewer, but
+			#handing it off to the PDF viewer, but still leaks the temporary file, I think this is acceptable)
 
 	def exportToPDF(self, pdf_file, xslt_file=None):
 		"""
