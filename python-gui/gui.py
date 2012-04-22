@@ -37,6 +37,7 @@ The Main window GUI class, most gui operations here.
 *** I REPEAT THIS PYTHON SOURCE FILE USES TABS, DEAL WITH IT ***
 """
 import sys
+import os
 import os.path
 
 from PySide.QtCore import *
@@ -49,6 +50,7 @@ from aboutDialog import Ui_aboutDialog
 #import "Model" file
 from cardsfile import CardsFile, BlackCard
 
+os.chdir('..') #FIXME
 app = QApplication(sys.argv)
 
 def trace(fn):
@@ -140,6 +142,7 @@ class BlackCardList(QAbstractTableModel):
 		else:
 			return None
 
+	@trace
 	def setData(self, index, data, role=None):
 		if not index.isValid():
 			return False
@@ -210,6 +213,8 @@ class ComboBoxDelegate(QStyledItemDelegate):
 			value = 'auto'
 		else:
 			value = str(cboIdx)
+
+		print('setting row %d to %s' % (index.row(), value))
 
 		index.model().setData(index, value, Qt.EditRole)
 

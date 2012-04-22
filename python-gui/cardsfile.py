@@ -42,6 +42,22 @@ from lxml import etree
 from tempfile import SpooledTemporaryFile, NamedTemporaryFile
 import subprocess
 import sys
+import os
+
+def getFOPPath(FOP_HOME=''):
+	if FOP_HOME == '' and 'FOP_HOME' in os.environ
+		FOP_HOME = os.environ['FOP_HOME']
+
+	if sys.platform == 'win32':
+		ext = '.bat'
+	else:
+		ext = ''
+
+	path = os.path.join(FOP_HOME,'fop' + ext)
+	if os.path.exists(path):
+
+	return path
+
 
 # white cards are just strings, black cards consist of "pick" either 1,2,3 or "auto" and text
 # text may contain any number of underscores (preferably 8) to count for blank
@@ -124,7 +140,7 @@ class CardsFile(object):
 		self.makeTree()
 
 		if xslt_file is None:
-			xslt_file = '../cards-2x2.xsl' #FIXME, don't hard-code file paths
+			xslt_file = 'cards-2x2.xsl' #FIXME, don't hard-code file paths
 
 		xslt_tree = etree.XSLT(etree.parse(xslt_file))
 		trans_tree = xslt_tree(self.tree)
@@ -185,6 +201,7 @@ class CardsFile(object):
 				tag.append(blank_tag)
 
 			if blackcard.pick != 'auto':
+				print ('pick != auto, pick = %s' % blackcard.pick)
 				tag.set('pick', blackcard.pick)
 
 			self.tree.append(tag)

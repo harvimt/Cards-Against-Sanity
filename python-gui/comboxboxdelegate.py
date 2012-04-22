@@ -1,10 +1,10 @@
-"""
-copied extensively from here: http://stackoverflow.com/questions/10037529/custom-delegate-in-pyside
-"""
 from PySide.QtCore import *
 from PySide.QtGui import *
 
 class ComboBoxDelegate(QStyledItemDelegate):
+	"""
+	copied extensively from here: http://stackoverflow.com/questions/10037529/custom-delegate-in-pyside
+	"""
 
 	def __init__(self, model, parent=None):
 		super(type(self), self).__init__(parent)

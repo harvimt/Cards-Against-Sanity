@@ -71,11 +71,11 @@
 					<xsl:when test="count(.//blank) &gt; 0">
 						<xsl:value-of select="count(.//blank)"/>
 					</xsl:when>
-					<xsl:otherwise>
-							1
-						</xsl:otherwise>
+					<xsl:otherwise>1</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
+
+			<xsl:message>pick = <xsl:value-of select="$pick"/></xsl:message>
 
 			<xsl:choose>
 				<xsl:when test="$pick = 1">
@@ -99,6 +99,9 @@
 						</fo:block>
 					</fo:block-container>
 				</xsl:when>
+				<xsl:otherwise>
+						<xsl:message>Problem!</xsl:message>
+				</xsl:otherwise>
 			</xsl:choose>
 		</fo:table-cell>
 	</xsl:template>
