@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
-<!-- vim: set ts=2:sw=2: -->
+<!-- vim: set ts=2 sw=2: -->
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:functx="http://www.functx.com"
+
 	version="1.0">
 
 	<xsl:template match="/cardset">
@@ -44,7 +46,19 @@
 		</fo:root>
 	</xsl:template>
 	<xsl:template match="whitecard">
-		<fo:table-cell border="1px solid black" padding=".1in" width="2in" height="1.8in" font-size="14pt" font-family="sans-serif">
+			<fo:table-cell border="1px solid black" padding=".1in" width="2in" height="1.8in" font-family="DejaVu Sans, Arial, sans-serif">
+			<xsl:attribute name="font-size">
+				<xsl:choose>
+					<xsl:when test="@font-size">
+						<xsl:value-of select="@font-size"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:text>14pt</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
+
+			</xsl:attribute>
+
 			<fo:block>
 				<xsl:apply-templates/>
 			</fo:block>
@@ -57,7 +71,20 @@
 		</fo:table-cell>
 	</xsl:template>
 	<xsl:template match="blackcard">
-		<fo:table-cell border="1px solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white" font-size="14pt">
+			<fo:table-cell border="1px solid white" padding=".1in" width="2in" height="1.8in" background-color="#231f20" color="white"
+					font-family="DejaVu Sans, Arial, sans-serif">
+
+			<xsl:attribute name="font-size">
+				<xsl:choose>
+					<xsl:when test="@font-size">
+						<xsl:value-of select="@font-size"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:text>14pt</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
+
+			</xsl:attribute>
 
 			<fo:block>
 				<xsl:apply-templates/>
@@ -74,8 +101,6 @@
 					<xsl:otherwise>1</xsl:otherwise>
 				</xsl:choose>
 			</xsl:variable>
-
-			<xsl:message>pick = <xsl:value-of select="$pick"/></xsl:message>
 
 			<xsl:choose>
 				<xsl:when test="$pick = 1">
@@ -120,8 +145,14 @@
 		</fo:external-graphic>
 	</xsl:template>
 
+	<xsl:template match="br">
+		<fo:block/>
+	</xsl:template>
+
 	<xsl:template match="blank">
-		<xsl:text>________</xsl:text>
+		<fo:inline text-decoration="underline">
+			<xsl:text>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</xsl:text>
+		</fo:inline>
 	</xsl:template>
 
 </xsl:stylesheet>
