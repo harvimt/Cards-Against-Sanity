@@ -59,16 +59,16 @@
 	<whitecard>GoGurt®.</whitecard>
 
 	<!--New Black Cards-->
-	<blackcard pick="1">Dear Abby, I’m having some trouble with ________ and would like your advice.</blackcard>
-	<blackcard pick="1">In L.A. County Jail, word is you can trade 200 cigarettes for ________.</blackcard>
-	<blackcard pick="1">Life for American Indians was forever changed when the White Man introduced them to ________.</blackcard>
-	<blackcard pick="1">Maybe she’s born with it. Maybe it’s ________.</blackcard>
-	<blackcard pick="1">Next on ESPN2, the World Series of ________.</blackcard>
-	<blackcard pick="2">Step 1: ________. Step 2: ________. Step 3: Profit.</blackcard>
+	<blackcard>Dear Abby, I’m having some trouble with <blank/> and would like your advice.</blackcard>
+	<blackcard>In L.A. County Jail, word is you can trade 200 cigarettes for <blank/>.</blackcard>
+	<blackcard font-size="13pt">Life for American Indians was forever changed when the White Man introduced them to <blank/>.</blackcard>
+	<blackcard>Maybe she’s born with it. Maybe it’s <blank/>.</blackcard>
+	<blackcard>Next on ESPN2, the World Series of <blank/>.</blackcard>
+	<blackcard>Step 1: <blank/>.<br/> Step 2: <blank/>.<br/> Step 3: Profit.</blackcard>
 
 	<!-- Changed Black Cards-->
-	<blackcard pick="2">Rumor has it that Vladimir Putin&#8217;s favorite dish is ________ stuffed with ________.</blackcard> <!-- forgot the pick="2" before-->
-	<blackcard pick="1">After the earthquake, Sean Penn brought ________ to the people of Haiti.</blackcard>
+	<!--<blackcard>Rumor has it that Vladimir Putin&#8217;s favorite dish is <blank/> stuffed with <blank/>.</blackcard>, original misprinted didn't include pick="2", I "fixed" this for the same reason I go rid of the duplicate flying sex snakes-->
+	<blackcard font-size="13pt">After the earthquake, Sean Penn brought <blank/> to the people of Haiti.</blackcard> <!--not considered a minor change from New Orleans to Haiti-->
 
-	<blackcard pick="1">What did the U.S. airdrop to the children of Afghanistan?</blackcard>
+	<blackcard>What did the U.S. airdrop to the children of Afghanistan?</blackcard>
 </cardset>
