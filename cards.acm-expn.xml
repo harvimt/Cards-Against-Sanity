@@ -36,7 +36,7 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>again
 	<whitecard>Plastic Surgery.</whitecard>
 	<whitecard>Bambi&#8217;s Mom.</whitecard>
 	<whitecard>New World Order.</whitecard>
-	<whitecard>Justice Elena Kagan.</whitecard>
+	<!--<whitecard>Justice Elena Kagan.</whitecard> — not enough people know who she is for it to be funny-->
 	<whitecard>Afrocentric midgets.</whitecard>
 	<whitecard>Tapeworms.</whitecard>
 	<whitecard>Donkey punches.</whitecard>
@@ -103,7 +103,7 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>again
 	<whitecard>She-Ra</whitecard>
 	<whitecard>Xena: Warrior Princess</whitecard>
 	<whitecard>GI Jane</whitecard>
-	<whitecard>Ally McBeal</whitecard>
+	<!--<whitecard>Ally McBeal</whitecard>-->
 	<whitecard>Ellen DeGeneres</whitecard>
 	<whitecard>Barbie&#8482;</whitecard>
 	<whitecard>Zoey Deschanele</whitecard>
@@ -111,7 +111,7 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>again
 	<whitecard>Captain Planet</whitecard>
 	<whitecard>Madonna</whitecard>
 	<whitecard>Fat Man &amp; Little Boy</whitecard>
-	<whitecard>Enola Gay</whitecard>
+	<whitecard>The Enola Gay</whitecard>
 	<whitecard>Nagasaki</whitecard>
 	<whitecard>Hiroshima</whitecard>
 	<whitecard>Ascii Art Porn</whitecard>
@@ -130,8 +130,8 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>again
 	<blackcard>When I broke up with <blank/>, I left <blank/>, in their <blank/>.</blackcard>
 	<blackcard>Cthulu demands you sacrifice <blank/>.</blackcard>
 	<blackcard>Sherlock Holmes and the Case of the Missing <blank/>.</blackcard>
-	<blackcard>Scientists have reverse engineered alien technology that unlocks the secrets of <blank/>.</blackcard>
-	<blackcard>It is often argued that our ancestors would have never evolved without the aid of <blank/>.</blackcard>
+	<blackcard font-size="13pt">Scientists have reverse engineered alien technology that unlocks the secrets of <blank/>.</blackcard>
+	<blackcard font-size="13pt">It is often argued that our ancestors would have never evolved without the aid of <blank/>.</blackcard>
 	<blackcard>The sad truth is, at the edge of the universe, there is nothing but <blank/>.</blackcard>
 	<blackcard><blank/> a day, keeps <blank/> away.</blackcard>
 	<blackcard>There is a time for peace, a time for war, and a time for <blank/>.</blackcard>
@@ -140,7 +140,7 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>again
 	<blackcard>The Himalayas are filled with many perils, such as <blank/>.</blackcard>
 	<blackcard>The road to success is paved with <blank/>.</blackcard>
 	<blackcard><blank/> in the morning, sailors take warning.</blackcard>
-	<blackcard>Virgil then guided Dante to the 10th circle of hell, where sinners were condemned to an eternity of <blank/>.</blackcard>
+	<blackcard font-size="12pt">Virgil then guided Dante to the 10th circle of hell, where sinners were condemned to an eternity of <blank/>.</blackcard>
 	<blackcard>I work out so that I can look good when I&#8217;m <blank/>.</blackcard>
 	<blackcard>What&#8217;s the time? <blank/> time!</blackcard>
 	<blackcard>&#8220;Watson!&#8221; Holmes exclaimed, &#8220;This man was obviously killed by <blank/>!&#8221;</blackcard>
@@ -150,6 +150,6 @@ http://www.reddit.com/r/boardgames/comments/nqi6f/your<blank/>cards<blank/>again
 	<blackcard>Go-go Gadget <blank/>!</blackcard>
 	<blackcard>The best xmas present my grandma ever gave me was <blank/>.</blackcard>
 	<blackcard><blank/> / <blank/>, this years hottest slash fiction. </blackcard>
-	<blackcard><black/> ♥ <blank/> a love story.</blackcard>
+	<blackcard><blank/> ♥ <blank/> a love story.</blackcard>
 
 </cardset>
