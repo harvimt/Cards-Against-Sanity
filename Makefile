@@ -8,9 +8,8 @@ XSL=cards-2x2.xsl
 	xsltproc --xinclude -o $@ $(XSL) $<
 	#java -jar /usr/share/java/xalan.jar -IN $< -OUT $@ -XSL $(XSL)
 
-
 %.fo.pdf: %.fo
-	fop -fo $< -pdf $@
+	fop -c fop.cfg.xml -fo $< -pdf $@
 
 %.rst.pdf: %.rst
 	rst2pdf -o $@ $<
