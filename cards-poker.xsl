@@ -6,12 +6,12 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:str="http://exslt.org/strings"
 	version="1.0">
-	<xsl:param name="card_width">2</xsl:param>
-	<xsl:param name="card_height">2</xsl:param>
+	<xsl:param name="card_width">2.5</xsl:param>
+	<xsl:param name="card_height">3.5</xsl:param>
 
-	<xsl:param name="page_width">8.5</xsl:param>
-	<xsl:param name="page_height">11</xsl:param>
-	<xsl:param name="columns">4</xsl:param>
+	<xsl:param name="page_width">2.5</xsl:param>
+	<xsl:param name="page_height">3.5</xsl:param>
+	<xsl:param name="columns">1</xsl:param>
 
 	<xsl:template match="/cards">
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
@@ -20,7 +20,7 @@
 					<xsl:attribute name="page-width"><xsl:value-of select="$page_width"/></xsl:attribute>
 					<xsl:attribute name="page-height"><xsl:value-of select="$page_height"/></xsl:attribute>
 
-					<fo:region-body margin=".25in .25in" column-gap="0in"/>
+					<fo:region-body margin="0in 0in" column-gap="0in"/>
 				</fo:simple-page-master>
 				<fo:page-sequence-master master-name="my-sequence">
 					<fo:repeatable-page-master-reference master-reference="all-pages"/>
@@ -31,14 +31,11 @@
 					<fo:table>
 						<fo:table-body>
 							<xsl:for-each select="cardset/whitecard|cardset/blackcard">
-								<xsl:variable name="i" select="position() + count(../preceding-sibling::cardset/*)"/>
-								<xsl:variable name="c" select="./following-sibling::* | ../following-sibling::cardset/*"/>
-								<xsl:if test="($i mod $columns) = 1">
+								<!--<xsl:variable name="i" select="position() + count(../preceding-sibling::cardset/*)"/>-->
+								<!--<xsl:variable name="c" select="./following-sibling::* | ../following-sibling::cardset/*"/>-->
+								<!--<xsl:if test="($i mod $columns) = 1">-->
 									<fo:table-row>
 										<xsl:apply-templates select="."/>
-										<xsl:apply-templates select="$c[1]"/>
-										<xsl:apply-templates select="$c[2]"/>
-										<xsl:apply-templates select="$c[3]"/>
 
 										<!--
 										<xsl:call-template name="loop">
@@ -48,7 +45,9 @@
 										-->
 
 									</fo:table-row>
+									<!--
 								</xsl:if>
+								-->
 							</xsl:for-each>
 						</fo:table-body>
 					</fo:table>
